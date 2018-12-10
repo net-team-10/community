@@ -1,0 +1,15 @@
+<!--pages/me/me.wxml-->
+<view class="top-tab flex-wrp flex-tab ">
+    <view class="toptab flex-item {{currentNavtab==idx ? 'active' : ''}}" wx:for="{{navTab}}" wx:for-index="idx" wx:for-item="itemName" data-idx="{{idx}}" bindtap="switchTab">
+        {{itemName}}
+    </view>
+</view>
+
+<scroll-view>
+    <view hidden="{{currentNavtab==0 ? '' : true}}">
+        <text>提问</text>
+    </view>
+    <view hidden="{{currentNavtab==1 ? '' : true}}">
+        <text>回答</text>
+    </view>
+</scroll-view>
