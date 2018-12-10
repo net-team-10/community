@@ -1,0 +1,9 @@
+项目环境：
+1. Java jdk
+2. maven
+3. 推荐使用Intellij Idea
+
+项目部署配置:
+1. 下载mysql
+2. 创建名为community的数据库，不需要建表
+3. 配置完成
