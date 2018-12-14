@@ -7,7 +7,8 @@ Page({
     data: {
       problem: "选择 Kindle 而不是纸质书的原因是什么?",
       plain: true,
-      answers: []
+      answers: [],
+      message: "+ 关注"
     },
 
     onLoad: function (options) {
@@ -31,6 +32,29 @@ Page({
       var answers = util.getNext()
       var answers_data = answers.data
        
+    },
+  careAnswerer:function(){
+    if (this.data.message == "+ 关注") {
+      this.setData({
+        message: "已关注"
+      });
+      var that = this
+      wx.showToast({
+        title: '关注答主成功',
+        icon: 'success',
+        duration: 2000
+      });
+    } else if (this.data.message == "已关注") {
+      this.setData({
+        message: "+ 关注"
+      });
+      var that = this
+      wx.showToast({
+        title: '已取消关注',
+        icon: 'success',
+        duration: 2000
+      });
     }
+  }
     
 })
