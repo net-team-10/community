@@ -9,6 +9,7 @@ Page({
     data: {
         navTab: ["问题", "答主"],
         currentNavtab: "0",
+        feed: []
     },
 
     /**
@@ -18,6 +19,7 @@ Page({
         console.log("loaddata");
         var that = this;
         this.getData();
+        this.getData2();
     },
     switchTab: function (e) {
         this.setData({
@@ -50,4 +52,13 @@ Page({
     });
   },
     
+  //使用本地 fake 数据实现刷新效果
+  getData2: function () {
+    var feed = util.getData2();
+    var feed_data = feed.data;
+    this.setData({
+      feed: feed_data,
+      feed_length: feed_data.length
+    });
+  },
 })
