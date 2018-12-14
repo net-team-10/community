@@ -5,7 +5,8 @@ Page({
   data: {
     problem: "选择 Kindle 而不是纸质书的原因是什么?",
     plain: true,
-    answers: []
+    answers: [],
+    message: "+关注问题"
   },
   onLoad: function(options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -13,7 +14,7 @@ Page({
     var that = this
     //调用应用实例的方法获取全局数据
     this.getData();
-  }, 
+  },
   //事件处理函数
   bindItemTap: function(e) {
     var answer_id = e.currentTarget.id;
@@ -25,7 +26,7 @@ Page({
     })
   },
 
-  onText:function(e){
+  onText: function(e) {
     var answer_id = e.currentTarget.id;
     app.requestDetailed = answer_id;
     console.log(answer_id);
@@ -36,11 +37,31 @@ Page({
   },
 
   //关注问题按钮的点击插入数据库
-  careProblem:function(){
-
+  careProblem: function() {
+    if (this.data.message == "+关注问题") {
+      this.setData({
+        message: "√ 已关注"
+      });
+      var that = this
+      wx.showToast({
+        title: '关注问题成功',
+        icon: 'success',
+        duration: 2000
+      });
+    } else if (this.data.message == "√ 已关注") {
+      this.setData({
+        message: "+关注问题"
+      });
+      var that = this
+      wx.showToast({
+        title: '已取消关注',
+        icon: 'success',
+        duration: 2000
+      });
+    }
   },
   //使用本地 fake 数据实现刷新效果
-  getData: function () {
+  getData: function() {
     var answers = util.getNext();
     console.log("loaddata");
     var answers_data = answers.data;
