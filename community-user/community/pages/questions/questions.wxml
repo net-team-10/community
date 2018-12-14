@@ -1,4 +1,6 @@
 <!--pages/questions/questions.wxml-->
+<!-- 引入wxs脚本 -->
+<wxs src="../../util/subutil.wxs" module="tools"/>
 <scroll-view scroll-y="true" class="container">
   <view class="page-header">
     <text class="page-title">问题广场</text>
@@ -10,9 +12,9 @@
   <block wx:for="{{feed}}" wx:for-index="key" wx:for-item="value">
     <view class="feed-item">
       <view class="feed-content">
-       <image class="item-more" mode="aspectFit" src="../../images/more.png"></image>
         <view class="question" id="{{value.question_id}}" bindtap="bindItemTap">
-          <text>{{value.question}}</text>
+        <!-- 通过自定义的module名称tools引用sub截取方法 -->
+          <text >{{tools.sub(value.question)}}</text>
         </view>
       </view>
     </view>
