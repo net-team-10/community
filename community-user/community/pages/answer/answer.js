@@ -10,12 +10,19 @@ Page({
 
     focus: false,
     texts: "",
+    answer_content: "",
     min: 10, //最少字数
     max: -1, //最多字数
 
-    items: [
-      { name: 'REAL', value: '实名', checked: 'true' },
-      { name: 'UNKNOWN', value: '匿名' },
+    items: [{
+        name: 'REAL',
+        value: '实名',
+        checked: 'true'
+      },
+      {
+        name: 'UNKNOWN',
+        value: '匿名'
+      },
     ],
 
   },
@@ -23,31 +30,71 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
 
   },
 
-  onTap: function (e) {
-    var qid = e.currentTarget.id;
-    app.requestDetailed = qid;
-    console.log(qid);
-    wx.redirectTo({
-       url: '../detail/detail'
-    })
+  onTap: function(e) {
+    // var qid = e.currentTarget.id;
+    // app.requestDetailed = qid;
+    // console.log(qid);
+
+    var answer_content = this.data.answer_content;
+    var date = new Date();
+
+    console.log("answer_content:" + answer_content.length);
+
+    // console.log("answer_content:" + (answer_content.length > 0));
+
+
+
+    if (answer_content.length < 10) {
+      this.setData({
+        texts: "回答不能少于10个字哦^_^"
+      })
+    } else {
+      console.log("跳");
+      wx.redirectTo({
+        url: '../detail/detail'
+      })
+
+    }
+
+    // wx.request({
+    //     url: 'http://localhost:9090/user/submit',
+    //     data:{
+    //         nickname:,
+    //         title:title,
+    //         content:content,
+    //         time:date,
+    //         state:1
+
+    //     },
+    //     method: "POST",
+    //     header:{
+    //         'content-type':'application/json'
+    //     },
+    //     success(res){
+    //         console.log(res.data)
+    //     }
+    // })
+
+    // console.log("tap")
 
   },
 
-  textBlur: function (e) {
+  textBlur: function(e) {
     var txt = e.detail.value;
     console.log("bindBlur事件" + txt);
   },
 
   bindFormSubmit(e) {
+    var txt = e.detail.value;
     // console.log(e.detail.value.textarea)
   },
 
   //字数限制  
-  inputs: function (e) {
+  inputs: function(e) {
     // 获取输入框的内容
     var value = e.detail.value;
     // 获取输入框内容的长度
@@ -63,7 +110,12 @@ Page({
         texts: " "
       })
 
-    }
+    };
+
+
+    this.setData({
+      answer_content: e.detail.value
+    });
 
   },
 
@@ -74,49 +126,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })
