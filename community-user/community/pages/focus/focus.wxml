@@ -1,32 +1,43 @@
 <!--pages/focus/focus.wxml-->
+<!-- 引入wxs脚本 -->
+<wxs src="../../util/subutil.wxs" module="tools"/>
 <view class="top-tab flex-wrp flex-tab ">
-    <view class="toptab flex-item {{currentNavtab==idx ? 'active' : ''}}" wx:for="{{navTab}}" wx:for-index="idx" wx:for-item="itemName" data-idx="{{idx}}" bindtap="switchTab">
-        {{itemName}}
-    </view>
+  <view class="toptab flex-item {{currentNavtab==idx ? 'active' : ''}}" wx:for="{{navTab}}" wx:for-index="idx" wx:for-item="itemName" data-idx="{{idx}}" bindtap="switchTab">
+    {{itemName}}
+  </view>
 </view>
 
 <scroll-view scroll-view scroll-y="true" class="container">
-    <view hidden="{{currentNavtab==0 ? '' : true}}">
-        <text>问题</text>
-    </view>
-    <view hidden="{{currentNavtab==1 ? '' : true}}">
-        <block wx:for="{{focus}}" wx:for-index="key" wx:for-item="item">
-            <view class="feed-item" id="{{item.user_id}}">
-                <view class="feed-source">
-                    <view class="avatar">
-                        <image src="{{item.user_avatar}}" ></image>
-                    </view>
-                    <text>{{item.user_name}}</text>
-                </view>
-                <view class="feed-content">
-                    <view class="question" qid="{{question_id}}">
-                        <view class="question-link">
-                            <text>{{item.question_content}}</text>
-                        </view>
-                            <text class="answer-txt" aid="{{answer_id}}">{{item.answer_content}}</text>
-                    </view>
-                </view>
+  <view hidden="{{currentNavtab==0 ? '' : true}}">
+    <block wx:for="{{feed}}" wx:for-index="key" wx:for-item="value">
+      <view class="item">
+        <view class="content">
+          <view class="question" id="{{value.question_id}}" bindtap="bindItemTap">
+             <!-- 通过自定义的module名称tools引用sub截取方法 -->
+          <text >{{tools.sub(value.question)}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view hidden="{{currentNavtab==1 ? '' : true}}">
+    <block wx:for="{{focus}}" wx:for-index="key" wx:for-item="item">
+      <view class="feed-item" id="{{item.user_id}}">
+        <view class="feed-source">
+          <view class="avatar">
+            <image src="{{item.user_avatar}}"></image>
+          </view>
+          <text>{{item.user_name}}</text>
+        </view>
+        <view class="feed-content">
+          <view class="question" qid="{{question_id}}">
+            <view class="question-link">
+              <text>{{item.question_content}}</text>
             </view>
-        </block>
-    </view>
+            <text class="answer-txt" aid="{{answer_id}}">{{item.answer_content}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
 </scroll-view>
