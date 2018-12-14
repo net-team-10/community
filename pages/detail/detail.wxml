@@ -1,0 +1,30 @@
+<!--pages/detail/detail.wxml-->
+<view class="page-header">
+  <text>{{problem}}</text>
+</view>
+<view>
+  <view class="add" bindtap="answerproblem">
+    <image src="../../images/write.png"></image>
+    <text bindtap='onText'>添加回答</text>
+    <button class="care" type="primary" bindtap="careProblem" plain="{{plain}}">+关注问题 </button>
+  </view>
+</view>
+<view class="line">
+  <text>所有回答</text>
+</view>
+<scroll-view scroll-y="true" class="container">
+  <block wx:for="{{answers}}" wx:for-index="key" wx:for-item="value">
+    <view class="answer-item flex-wrp" id="{{value.answer_id}}" bindtap="bindItemTap">
+      <view class="avatar flex-item">
+        <image src="{{value.answerer_icon}}"></image>
+      </view>
+      <view class="answer-content flex-item">
+        <text class="answerer_name">{{value.answerer_name}}  回答了问题</text>
+        <text class="content">{{value.answer_content}}</text>
+      </view>
+    </view>
+    <view class="showtime">
+      <text>{{value.answer_time}}</text>
+    </view>
+  </block>
+</scroll-view> 

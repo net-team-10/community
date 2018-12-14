@@ -1,0 +1,12 @@
+<!--pages/ask/ask.wxml-->
+<view class="container">
+  <view class="section">
+    <form class="form-style" bindsubmit="bindFormSubmit">
+      <textarea class="textarea-style" placeholder="请输入问题(最多不超过300个字)" name="textarea" bindblur='textBlur' minlength="{{min}}" maxlength="{{max}}" bindinput="inputs">
+        <text class="currentWordNumber">{{currentWordNumber|0}}/{{max}}</text>
+        <text class="hint">{{texts}}</text>
+      </textarea>
+      <button class="button-style" bindtap='onTap' form-type="submit"> 发表 </button>
+    </form>
+  </view>
+</view>

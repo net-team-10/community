@@ -1,0 +1,19 @@
+<!--pages/answer/answer.wxml-->
+<view class="container">
+  <view class="section">
+    <form class="form-style" bindsubmit="bindFormSubmit">
+      <textarea class="textarea-style" placeholder="请添加回答" name="textarea" bindblur='textBlur' minlength="{{min}}" maxlength="{{max}}" bindinput="inputs">
+        <text class="hint">{{texts}}</text>
+      </textarea>
+      <button class="button-style" bindtap='onTap' form-type="submit"> 发表 </button>
+    </form>
+  </view>
+  <view>
+    <radio-group class="radio-group" bindchange="radioChange">
+      <label class="radio" wx:for="{{items}}">
+        <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+      </label>
+    </radio-group>
+  </view>
+
+</view>

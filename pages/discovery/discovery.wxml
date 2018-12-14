@@ -1,0 +1,50 @@
+<!--pages/discovery/discovery.wxml-->
+<view class='page-header'>
+  <text>{{problem}}</text>
+</view>
+<view>
+  <view class="add" bindtap="answerproblem">
+    <image src="../../images/write.png"></image>
+    <text bindtap='onText'>添加回答</text>
+    <button class="care" type="primary" bindtap="careProblem" plain="{{plain}}">+关注问题 </button>
+  </view>
+</view>
+<view class="line">
+  <text>回答详情</text>
+</view>
+
+  <block>
+    <view class="answerer-wrp">
+        <view class="bg-half"></view>
+        <view class="answerer flex-wrp">
+            <view class="avatar flex-item">
+                <image src="../../images/icon1.jpeg"></image>
+            </view>
+            <view class="answerer-info flex-item">
+                <text class="answerer-name">Rebecca</text>
+                <text class="answerer-des">QAQAQAQAQAQAQ</text>
+            </view>
+            <view class="follow flex-item">
+                <text>十 关注</text>
+            </view>
+        </view>
+      </view>
+  </block>
+
+<scroll-view scroll-y="true" class="container">
+  <view class="answer-content">
+    <text>
+    难道不明白纸质书更贵啊！！！ 若觉得kindle更贵，我觉得要么阅读量太少，那确实没有买kindle的必要。要么买的都是盗版的纸质书？我不清楚不加以评论。。。 另外，用kindle看小说的怎么真心不懂了...  
+    </text>
+  </view>
+</scroll-view>
+<view class="answer-footer flex-wrp">
+        <view class="operation-wrp flex-item">
+            <view class="operation flex-wrp flex-tab">
+                <view class="operation-btn flex-item">
+                    <image src="../../images/comment.png" bindtap="bindItemTap"></image>
+                </view>
+
+            </view>
+        </view>
+    </view>
