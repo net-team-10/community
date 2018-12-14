@@ -1,1 +1,224 @@
 /* pages/discovery/discovery.wxss */
+
+.care {
+  width: 230rpx;
+  height: 70rpx;
+  font-size: 30rpx;
+  text-align: center;
+  text-decoration: none;
+  margin-right: 30rpx;
+  margin-top: 10rpx;
+}
+
+.page-header {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1 rpx solid #ccc;
+  padding: 20rpx 40rpx;
+  font-size: 35rpx;
+  text-align: left;
+}
+
+.add {
+  margin-left: 10rpx;
+  padding-bottom: 20rpx;
+}
+
+.add image {
+  width: 50rpx;
+  height: 50rpx;
+  vertical-align: middle;
+  float: left;
+}
+
+.add text {
+  display: inline-block;
+  margin-left: 5rpx;
+  color: #9a9c9b;
+  font-size: 30rpx;
+}
+
+.line {
+  background:#ebebeb;
+  height: 60rpx;
+  padding: 10rpx 40rpx;
+  text-align: left;
+  width: 670rpx;
+  opacity: 0.3;
+}
+
+.line text {
+  display: inline-block;
+  line-height: 60rpx;
+  font-size: 30rpx;
+  vertical-align: middle;
+}
+
+.answer-item {
+  width: 680rpx;
+  background: #fff;
+  padding: 25rpx 70rpx 25rpx 0;
+}
+
+.answer-item  image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 80rpx;
+}
+
+.answer-item .avatar {
+  flex: 1;
+}
+
+.answer-item .answer-content {
+  flex: 4;
+  text-align: left;
+}
+
+.answer-item .answer-content text {
+  display: block;
+}
+
+.answer-item .answer-content .answerer_name {
+  color: #818a8f;
+  font-size: 28rpx;
+  padding: 0 0 8rpx 0;
+}
+
+.answer-item .answer-content .content {
+  color: #afafaf;
+  font-size: 30rpx;
+  line-height: 34rpx;
+}
+
+.flex-wrp {
+  display: flex;
+}
+
+.flex-item {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.showtime {
+  border-bottom: solid 1px #ebebeb;
+}
+
+.showtime text{
+  display: inline-block;
+  color: #9a9c9b;
+  font-size: 28rpx;
+  margin-left: 430rpx;
+}
+
+.answerer-wrp{
+    position: relative;
+    width: 750rpx;
+    height: 150rpx;
+    background: #fff;
+}
+.answerer-wrp .bg-half{
+    position: absolute;
+    top: 0;
+    width: 750rpx;
+    height: 75rpx;
+}
+.answerer {
+    position: relative;
+    margin: 0 auto;
+    width: 630rpx;
+    height: 90rpx;
+    padding: 30rpx;
+    background: #fff;
+    border: solid 1px #ebebeb;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px #bebebe;
+}
+.answerer .avatar {
+    flex: 1;
+    width: 90rpx;
+    height: 90rpx;
+}
+
+.answerer .avatar image {
+    display: inline-block;
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 90rpx;
+}
+.answerer .answerer-info{
+    flex: 5;
+    text-align: left;
+    padding: 10rpx 20rpx;
+    line-height: 38rpx;
+}
+.answerer .answerer-info text{
+    display: block;
+}
+.answerer .answerer-info .answerer-name{
+    font-size: 32rpx;
+}
+.answerer .answerer-info .answerer-des{
+    font-size: 22rpx;
+    color: #808080;
+    line-height: 28rpx;
+}
+.answerer .follow{
+    flex: 2;
+    padding: 15rpx 0;
+    font-size: 22rpx;
+}
+.answerer .follow text{
+    display: inline-block;
+    padding: 15rpx 20rpx;
+    color: #40bcd0;
+    border: solid 2px #40bcd0;
+    border-radius: 6rpx;
+}
+.answer-content{
+    padding: 30rpx 40rpx;
+    background: #ffffff;
+}
+.answer-content text{
+    font-size: 32rpx;
+    color: #454545;
+    line-height: 44rpx;
+}
+.answer-content image{
+    width: 100%;
+    margin: 20rpx 0;
+}
+.answer-footer{
+    position: fixed;
+    bottom: 0;
+    height: 70rpx;
+    border-top: solid 1px #ebebeb;
+    background: #ffffff;
+    width: 670rpx;
+    padding: 20rpx 40rpx;
+}
+
+.answer-footer .operation-wrp{
+    flex: 5;
+}
+.answer-footer .operation{
+    justify-content: space-between;
+    padding: 0 0 0 60rpx;
+}
+.answer-footer .operation-btn{
+    flex: 1;
+    text-align: right;
+}
+.answer-footer .operation image{
+    display: block;
+    margin-bottom: 10%;
+    width: 80rpx;
+    height: 100rpx;
+    float: right;
+}
+.answer-footer .operation-btn text{
+    display: block;
+    font-size: 16rpx;
+    color: #bebebe;
+}
+

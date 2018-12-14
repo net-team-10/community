@@ -5,7 +5,12 @@
         "pages/questions/questions",
         "pages/focus/focus",
         "pages/notify/notify",
-        "pages/me/me"
+        "pages/me/me",
+        "pages/discovery/discovery",
+        "pages/detail/detail",
+        "pages/comment/comment",
+        "pages/ask/ask",
+        "pages/answer/answer"
     ],
     "window": {
         "backgroundTextStyle": "light",
