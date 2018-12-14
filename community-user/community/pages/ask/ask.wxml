@@ -4,13 +4,18 @@
         <form class="form-style" bindsubmit="bindFormSubmit">
             <textarea class="question_title" placeholder="请输入问题标题" name="title" bindinput="title_inputs"></textarea>
             <view class="line"></view>
-            <textarea class="textarea-style" placeholder="请输入问题描述" name="content" minlength="{{content_len_min}}" maxlength="{{content_len_max}}" bindinput="content_inputs">
-                
+            <view>
+              <textarea class="textarea-style" placeholder="请输入问题描述" name="content" minlength="{{content_len_min}}" maxlength="{{content_len_max}}" bindinput="content_inputs">
                 <text class="hint">{{texts}}</text>
                 <text class="currentWordNumber">{{currentWordNumber|0}}/{{content_len_max}}</text>
-            </textarea>
+              </textarea>
+              
+            </view>
+            <view>
+              <button class="button-style" bindtap='onTap' form-type="submit"> 发表 </button>
+            </view>
             
-            <button class="button-style" bindtap='onTap' form-type="submit"> 发表 </button>
+            
         </form>
     </view>
 </view>

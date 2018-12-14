@@ -1,6 +1,6 @@
 {
     "pages":[
-        "pages/ask/ask",
+        
         "pages/welcome/welcome",
         "pages/questions/questions",
         "pages/focus/focus",
@@ -9,7 +9,7 @@
         "pages/discovery/discovery",
         "pages/detail/detail",
         "pages/comment/comment",
-        
+        "pages/ask/ask",
         "pages/answer/answer"
     ],
     "window": {

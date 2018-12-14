@@ -32,9 +32,11 @@ page {
 
 .line {
     border: 1px solid #0068c4;
+    background-color: #0068c4;
 }
 
 .button-style {
+    margin-top:30px;
     height: 100rpx;
     width: 150rpx;
 }
@@ -44,15 +46,15 @@ page {
     color: gray;
     float: right;
     z-index: 6666;
-    margin-top: 600rpx;
-
+    margin-top:640rpx;
     
 }
 
 .hint {
     font-size: 28rpx;
-    position: absolute;
-    top: 120rpx;
-    left: 30rpx;
+    z-index:444;
+    float:left;
+    margin:600rpx 0rpx 0rpx 20rpx;
     color: #f60;
+
 }
