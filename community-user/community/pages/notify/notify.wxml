@@ -1,2 +1,29 @@
 <!--pages/notify/notify.wxml-->
-<text>动态页面</text>
+<!-- 引入wxs脚本 -->
+<wxs src="../../util/subutil.wxs" module="tools" />
+<scroll-view scroll-y="true" class="container">
+  <view class="page-header">
+    <text class="page-title">回答过的问题</text>
+  </view>
+   <block wx:for="{{questions}}" wx:for-index="key" wx:for-item="item">
+      <view class="feed-item" id="{{item.ranker_id}}">
+        <view class="feed-source">
+          <view class="avatar">
+            <image src="{{item.user_avatar}}"></image>
+          </view>
+          <text class="ranker_name">{{item.ranker}}  评论了我</text>
+        </view>
+        <view class="feed-content">
+          <view class="question" qid="{{question_id}}">
+            <view class="question-content">
+              <text>{{tools.sub(item.question_content)}}</text>
+            </view>
+            <text class="answer_content">{{tools.sub2(item.answer_content)}}</text>
+            <view>
+            <text class="time">{{item.comment_time}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+</scroll-view>
