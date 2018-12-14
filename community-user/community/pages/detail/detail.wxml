@@ -1,4 +1,6 @@
 <!--pages/detail/detail.wxml-->
+<!-- 引入wxs脚本 -->
+<wxs src="../../util/subutil.wxs" module="tools"/>
 <view class="page-header">
   <text>{{problem}}</text>
 </view>
@@ -9,7 +11,7 @@
         <text bindtap='onText'>添加回答</text>
     </view>
     <button class="care" type="primary" bindtap="careProblem" plain="{{plain}}">
-        +关注问题
+        {{message}}
     </button>
   </view>
 </view>
@@ -24,7 +26,7 @@
       </view>
       <view class="answer-content flex-item">
         <text class="answerer_name">{{value.answerer_name}}  回答了问题</text>
-        <text class="content">{{value.answer_content}}</text>
+        <text class="content">{{tools.sub2(value.answer_content)}}</text>
       </view>
     </view>
     <view class="showtime">
