@@ -3,7 +3,7 @@
   <view class="page-header">
     <text class="page-title">问题广场</text>
     <view class = "ask-container" bindtap="onTap">
-        <image class="image" src="/images/ask.png"></image>
+        <image class="image" src="/images/ask_t.png"></image>
         <text class = "ask">提问</text>
     </view>
   </view>

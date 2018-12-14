@@ -4,9 +4,13 @@
 </view>
 <view>
   <view class="add" bindtap="answerproblem">
-    <image src="../../images/write.png"></image>
-    <text bindtap='onText'>添加回答</text>
-    <button class="care" type="primary" bindtap="careProblem" plain="{{plain}}">+关注问题 </button>
+    <view class="write-container">
+        <image src="../../images/write.png"></image>
+        <text bindtap='onText'>添加回答</text>
+    </view>
+    <button class="care" type="primary" bindtap="careProblem" plain="{{plain}}">
+        +关注问题
+    </button>
   </view>
 </view>
 <view class="line">
