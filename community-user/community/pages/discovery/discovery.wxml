@@ -2,13 +2,6 @@
 <view class='page-header'>
   <text>{{problem}}</text>
 </view>
-<view>
-  <view class="add" bindtap="answerproblem">
-    <image src="../../images/write.png"></image>
-    <text bindtap='onText'>添加回答</text>
-    <button class="care" type="primary" bindtap="careProblem" plain="{{plain}}">+关注问题 </button>
-  </view>
-</view>
 <view class="line">
   <text>回答详情</text>
 </view>
@@ -24,8 +17,8 @@
                 <text class="answerer-name">Rebecca</text>
                 <text class="answerer-des">QAQAQAQAQAQAQ</text>
             </view>
-            <view class="follow flex-item">
-                <text>十 关注</text>
+            <view class="follow flex-item" bindtap="careAnswerer">
+                <text> {{message}}</text>
             </view>
         </view>
       </view>
