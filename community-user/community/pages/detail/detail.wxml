@@ -1,24 +1,31 @@
 <!--pages/detail/detail.wxml-->
 <!-- 引入wxs脚本 -->
-<wxs src="../../util/subutil.wxs" module="tools"/>
+<wxs src="../../util/subutil.wxs" module="tools" />
 <view class="page-header">
-  <text>{{problem}}</text>
+  <view class="question-title">
+    <text>{{problem}}</text>
+  </view>
+  <view class="question-content">
+    <text>问题描述问题描述问题描述问题描述问题描述问题描述问题描述问题描述问题描述问题描述问题描述问题描述问题描述问题描述问题描述问题描述问题描述
+    </text>
+  </view>
+
 </view>
 <view>
-  <view class="add" bindtap="answerproblem">
-    <view class="write-container">
-        <image src="../../images/write.png"></image>
-        <text bindtap='onText'>添加回答</text>
+  <view class="add">
+    <view class="write-container" bindtap='onText'>
+      <image src="../../images/write.png"></image>
+      <text>添加回答</text>
     </view>
-    <button class="care" type="primary" bindtap="careProblem" plain="{{plain}}">
-        {{message}}
-    </button>
+    <view class="care" bindtap='onBtn'>
+      {{message}}
+    </view>
   </view>
 </view>
 <view class="line">
   <text>所有回答</text>
 </view>
-<scroll-view scroll-y="true" class="container">
+<scroll-view scroll-y="true">
   <block wx:for="{{answers}}" wx:for-index="key" wx:for-item="value">
     <view class="answer-item flex-wrp" id="{{value.answer_id}}" bindtap="bindItemTap">
       <view class="avatar flex-item">
@@ -33,4 +40,5 @@
       <text>{{value.answer_time}}</text>
     </view>
   </block>
-</scroll-view> 
+  <view class="blank"></view>
+</scroll-view>

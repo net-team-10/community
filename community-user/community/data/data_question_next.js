@@ -3,15 +3,14 @@ module.exports = {
 }
 
 var next = {
-  "id":1,
-  "data": [
-    {
-      "answer_id":1,
+  "id": 1,
+  "data": [{
+      "answer_id": 1,
       "answerer_icon": "../../images/icon1.jpeg",
       "answerer_name": "George",
       "answer_content": "我不知道那个铁塔的情况，不过气象铁塔上会有一些测太阳辐射的设备，如果说辐射的话，太阳辐射那么多，大家赶紧躲进地底下呀~~~~~要不然辐射量这么大，会变异的呀~~~~",
       "answer_time": "2018-12-12 9:01"
-    }, 
+    },
     {
       "answer_id": 2,
       "answerer_icon": "../../images/icon1.jpeg",
@@ -27,11 +26,11 @@ var next = {
       "answer_time": "2018-12-12 9:10"
     },
     {
-    "answer_id": 4,
-    "answerer_icon": "../../images/icon1.jpeg",
-    "answerer_name": "George",
-    "answer_content": "我不知道那个铁塔的情况，不过气象铁塔上会有一些测太阳辐射的设备，如果说辐射的话，太阳辐射那么多，大家赶紧躲进地底下呀~~~~~要不然辐射量这么大，会变异的呀~~~~",
-    "answer_time": "2018-12-12 9:30"
+      "answer_id": 4,
+      "answerer_icon": "../../images/icon1.jpeg",
+      "answerer_name": "George",
+      "answer_content": "我不知道那个铁塔的情况，不过气象铁塔上会有一些测太阳辐射的设备，如果说辐射的话，太阳辐射那么多，大家赶紧躲进地底下呀~~~~~要不然辐射量这么大，会变异的呀~~~~",
+      "answer_time": "2018-12-12 9:30"
     }
   ]
 }

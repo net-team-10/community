@@ -6,7 +6,7 @@ Page({
   /**
    * 页面的初始数据
    */
-  
+
   data: {
     questions: [],
   },
@@ -15,12 +15,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var that = this
+
     //调用应用实例的方法获取全局数据
-    this.getData();
+
   },
+
+  bindItemTap: function(options) {
+    wx.navigateTo({
+      url: '../comment/comment',
+    })
+  },
+
   //使用本地 fake 数据实现刷新效果
-  getData: function () {
+  getData: function() {
     var questions = util.getData3();
     console.log("loaddata");
     var questions_data = questions.data;
@@ -33,7 +40,8 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+    this.getData();
+    this.onLoad()
   },
 
   /**

@@ -1,2 +1,75 @@
 <!--pages/comment/comment.wxml -->
-<text>comment list</text>
+<wxs src="../../util/subutil.wxs" module="tools" />
+
+<view class='page-header'>
+  <text>{{problem}}</text>
+</view>
+<view class="line">
+  <text>回答详情</text>
+</view>
+
+<block>
+  <view class="answerer-wrp">
+    <view class="bg-half"></view>
+    <view class="answerer flex-wrp">
+      <view class="avatar flex-item">
+        <image src="{{answer.answerer_icon}}"></image>
+      </view>
+      <view class="answerer-info flex-item">
+        <text class="answerer-name">{{answer.answerer_name}}</text>
+        <text class="answerer-des">{{answer.answer_time}}</text>
+      </view>
+      <view class="follow flex-item" bindtap="careAnswerer">
+        <text> {{message}}</text>
+      </view>
+    </view>
+  </view>
+</block>
+
+<scroll-view scroll-y="true" enable-back-to-top="true">
+  <view class="answer-content">
+    <text>
+            {{answer.answer_content}}  
+        </text>
+
+  </view>
+
+  <view class="line">
+    <text>回答评论</text>
+  </view>
+
+  <view>
+    <block wx:for="{{comments}}" wx:for-index="key" wx:for-item="comment">
+      <view class="comment">
+        <view class="comment-header">
+          <image src='{{comment.answerer_icon}}'></image>
+          <view class="comment-header-text">
+            <text class='name'>{{comment.answerer_name}}</text>
+            <text class='date'>{{comment.answer_time}}</text>
+          </view>
+
+        </view>
+        <view class='comment-content'>
+          <text>{{tools.sub(comment.answer_content)}}</text>
+        </view>
+      </view>
+
+
+    </block>
+  </view>
+
+
+  <view class='blank'>
+  </view>
+
+</scroll-view>
+<view class="answer-footer flex-wrp">
+  <view class='operation'>
+    <!-- <image class='avatar' src="{{userInfo.avatarUrl}}"></image> -->
+    <image class='avatar' src="../../images/icon1.jpeg"></image>
+    <view>
+      <input placeholder='评论一下吧^_^' bindinput='commentInput' value="{{comment}}"></input>
+    </view>
+    <image class='comment-btn' src="../../images/comment.png" bindtap="bindItemTap"></image>
+  </view>
+</view>

@@ -9,8 +9,8 @@ Page({
   data: {
     navTab: ["提问", "回答"],
     currentNavtab: "0",
-    questions:[],
-    focus:[],
+    questions: [],
+    focus: [],
   },
 
   /**
@@ -32,17 +32,28 @@ Page({
     var questions = util.getData2();
     var questions_data = questions.data;
     this.setData({
-      questions:questions_data
+      questions: questions_data
     });
   },
 
-  getData3: function () {
+  getData3: function() {
     var focus = util.getData3();
     var focus = focus.data;
     this.setData({
       focus: focus,
       focus_data_length: focus.length
     });
+  },
+
+  bindQuestionItemTap(e) {
+    wx.navigateTo({
+      url: '../detail/detail',
+    })
+  },
+  bindAnswerItemTap(e) {
+    wx.navigateTo({
+      url: '../comment/comment',
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

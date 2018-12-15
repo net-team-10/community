@@ -19,29 +19,29 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
 
   },
 
-  onTap: function (e) {
+  onTap: function(e) {
     var title = this.data.title;
     var content = this.data.content;
     var date = new Date();
 
-    console.log("title:" + (title.length>0));
-    console.log("content:" +(content.length>0));
+    console.log("title:" + (title.length > 0));
+    console.log("content:" + (content.length > 0));
 
 
 
-    if(title.length==0){
+    if (title.length == 0) {
       this.setData({
         texts: "标题不能为空哦^_^"
       })
-    }else if(content.length<10){
+    } else if (content.length < 10) {
       this.setData({
-        texts:"问题描述不能少于10个字哦^_^"
+        texts: "问题描述不能少于10个字哦^_^"
       })
-    }else{
+    } else {
       wx.switchTab({
         url: '../questions/questions'
       })
@@ -72,7 +72,7 @@ Page({
 
   },
 
-  showToast: function (e) {
+  showToast: function(e) {
 
     wx.showToast({
       title: "字数不足",
@@ -95,7 +95,7 @@ Page({
     // }
 
   },
-  title_inputs: function (e) {
+  title_inputs: function(e) {
     this.setData({
       title: e.detail.value
     });
@@ -103,7 +103,7 @@ Page({
 
 
   //字数限制  
-  content_inputs: function (e) {
+  content_inputs: function(e) {
     // 获取输入框的内容
     var value = e.detail.value;
     // 获取输入框内容的长度
@@ -139,49 +139,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

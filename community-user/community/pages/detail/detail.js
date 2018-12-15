@@ -4,9 +4,9 @@ var app = getApp()
 Page({
   data: {
     problem: "选择 Kindle 而不是纸质书的原因是什么?",
-    plain: true,
     answers: [],
-    message: "+关注问题"
+    message: "关注问题",
+    isMyQuetion:false
   },
   onLoad: function(options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -14,6 +14,12 @@ Page({
     var that = this
     //调用应用实例的方法获取全局数据
     this.getData();
+
+    if(this.data.isMyQuetion){
+      this.setData({
+        message:"关闭问题"
+      })
+    }
   },
   //事件处理函数
   bindItemTap: function(e) {
@@ -22,7 +28,7 @@ Page({
     console.log(answer_id);
     wx.navigateTo({
       //跳转至回答详情界面
-      url: '../discovery/discovery'
+      url: '../comment/comment'
     })
   },
 
@@ -36,27 +42,59 @@ Page({
     })
   },
 
+  onBtn: function(e){
+    if(this.data.isMyQuetion){
+      this.closeProblem()
+    }else{
+      this.careProblem()
+    }
+  },
+
+  closeProblem: function(){
+    if (this.data.message == "关闭问题") {
+      this.setData({
+        message: "开启问题"
+      });
+      var that = this
+      wx.showToast({
+        title: '关闭问题成功',
+        icon: 'success',
+        duration: 1000
+      });
+    } else if (this.data.message == "开启问题") {
+      this.setData({
+        message: "关闭问题"
+      });
+      var that = this
+      wx.showToast({
+        title: '开启问题成功',
+        icon: 'success',
+        duration: 1000
+      });
+    }
+  },
+
   //关注问题按钮的点击插入数据库
   careProblem: function() {
-    if (this.data.message == "+关注问题") {
+    if (this.data.message == "关注问题") {
       this.setData({
-        message: "√ 已关注"
+        message: "取消关注"
       });
       var that = this
       wx.showToast({
         title: '关注问题成功',
         icon: 'success',
-        duration: 2000
+        duration: 1000
       });
-    } else if (this.data.message == "√ 已关注") {
+    } else if (this.data.message == "取消关注") {
       this.setData({
-        message: "+关注问题"
+        message: "关注问题"
       });
       var that = this
       wx.showToast({
         title: '已取消关注',
         icon: 'success',
-        duration: 2000
+        duration: 1000
       });
     }
   },
