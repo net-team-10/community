@@ -19,4 +19,9 @@ public interface UserMapDAO extends JpaRepository<UserMap,Integer>, JpaSpecifica
     UserMap save(UserMap userMap);
 
     List<UserMap> getAllByUserId(int userId);
+
+    List<UserMap> getAllByUserIdAndFocusedUserId(int userId, int focusedUserId);
+
+    @Transactional
+    void deleteUserMapByUserIdAndFocusedUserId(int userId, int focusedUserId);
 }

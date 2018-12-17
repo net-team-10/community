@@ -12,6 +12,8 @@ public interface CommentService {
     public Comment submitComment(Comment comment);
 
     //查看对该用户的回答的所有评论，按时间倒排
-    public List<CommentForAnswer> getCommentForAnswer(String nickName);
+    public List<Comment> getCommentForUser(int userId);
+
+    public List<Comment> getAnswerComments(int answerId);
 
 }

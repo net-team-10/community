@@ -35,27 +35,27 @@ public class CommentServiceImpl implements CommentService {
         return commentDAO.save(comment);
     }
 
+
     @Override
-    public List<CommentForAnswer> getCommentForAnswer(String nickName) {
-        List<User> users = userDao.findAllByNickName(nickName);
-        User user = users.get(0);
-        List<CommentForAnswer> commentForAnswers = new ArrayList<>();
+    public List<Comment> getAnswerComments(int answerId) {
+        return commentDAO.findAllByAnswerId(answerId);
+    }
+
+    @Override
+    public List<Comment> getCommentForUser(int userId) {
+        List<Comment> comments = new ArrayList<>();
         //先找到自己有哪些回答
         //再找每一个回答的所有评论
-        List<Answer> answers = answerDao.findAllByUserId(user.getId());
+        List<Answer> answers = answerDao.findAllByUserId(userId);
         for(Answer answer:answers){
             //自己的每一个回答
-            List<Comment> comments = commentDAO.findAllByAnswerId(answer.getId());
-            for(Comment comment:comments){
-                CommentForAnswer commentForAnswer = new CommentForAnswer();
-                commentForAnswer.setComment(comment);
-                commentForAnswer.setAnswer(comment.getAnswer());
-                commentForAnswer.setUser(comment.getUser());
-                commentForAnswer.setQuestion(comment.getAnswer().getQuestion());
-                commentForAnswers.add(commentForAnswer);
+            List<Comment> answerComments = commentDAO.findAllByAnswerId(answer.getId());
+            if(null!=answerComments&&answerComments.size()>0){
+                Collections.sort(answerComments);
+                comments.add(answerComments.get(0));
             }
+
         }
-        Collections.sort(commentForAnswers);
-        return commentForAnswers;
+        return comments;
     }
 }

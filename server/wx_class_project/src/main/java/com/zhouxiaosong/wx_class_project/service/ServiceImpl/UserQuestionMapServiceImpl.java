@@ -10,6 +10,7 @@ import com.zhouxiaosong.wx_class_project.service.UserQuestionMapService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,15 +29,34 @@ public class UserQuestionMapServiceImpl implements UserQuestionMapService {
 
 
     @Override
-    public UserQuestionMap focusQuestion(String nickName, int questionId) {
-        List<User> users = userDao.findAllByNickName(nickName);
-        User user = users.get(0);
-        Question question = questionDao.findById(questionId);
-
+    public UserQuestionMap focusQuestion(int userId, int questionId) {
         UserQuestionMap userQuestionMap = new UserQuestionMap();
-        userQuestionMap.setUser(user);
+        Question question = questionDao.findById(questionId);
+        User user = userDao.findById(userId);
         userQuestionMap.setQuestion(question);
-
+        userQuestionMap.setUser(user);
         return userQuestionMapDao.save(userQuestionMap);
+    }
+
+    @Override
+    public void notFocusQuestion(int userId, int questionId) {
+        userQuestionMapDao.deleteUserQuestionMapByUserIdAndQuestionId(userId,questionId);
+    }
+
+    @Override
+    public Boolean checkFocus(int userId, int questionId) {
+        List<UserQuestionMap> maps = userQuestionMapDao.findAllByUserIdAndQuestionId(userId, questionId);
+        return maps.size()>0;
+    }
+
+    @Override
+    public List<Question> userFocusedQuestions(int userId) {
+        List<Question> questions = new ArrayList<>();
+        List<UserQuestionMap> maps = userQuestionMapDao.findAllByUserId(userId);
+        for(UserQuestionMap map: maps){
+            questions.add(map.getQuestion());
+        }
+
+        return questions;
     }
 }

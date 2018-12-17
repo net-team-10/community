@@ -1,3 +1,5 @@
+
+var util = require('../../util/util.js')
 const app = getApp()
 
 Page({
@@ -36,32 +38,60 @@ Page({
     }
   },
   getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
+    // console.log(e)
+    var info = e.detail.userInfo
+    if (info){
+      app.globalData.userInfo = info
+      this.setData({
+        userInfo: info,
+        hasUserInfo: true
+      })
+    }
+    
   },
   onTap: function(e) {
-    console.log(this.data.userInfo)
-    // wx.request({
-    //     url: 'http://localhost:9090/user/add',
-    //     data:{
-    //         nickName:this.data.userInfo.nickName,
-    //         avatarUrl:this.data.userInfo.avatarUrl,
-    //         gender:this.data.userInfo.gender
-    //     },
-    //     method: "POST",
-    //     header:{
-    //         'content-type':'application/json'
-    //     },
-    //     success(res){
-    //         console.log(res.data)
-    //     }
-    // })
+    // console.log(this.data.userInfo)
+    var userInfo = this.data.userInfo
+    
+    var url = app.globalData.domain+"user/add"
+    var data = {
+      nickName:userInfo.nickName,
+      avatarUrl:userInfo.avatarUrl,
+      gender:userInfo.gender
+    }
+
+    wx.request({
+      url: url,
+      data: data,
+      method: "POST",
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        
+      }
+    })
+
+    var that = this
+
+    wx.request({
+      url: app.globalData.domain+"user/zxs", 
+      method: "GET",
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        var user = res.data
+        app.globalData.userInfo = user
+        app.globalData.userId = user.id
+        that.setData({
+          userInfo:user
+        })
+      }
+    })
+
     wx.switchTab({
-      url: '../questions/questions',
+    url: '../questions/questions',
     })
 
   }

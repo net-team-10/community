@@ -9,35 +9,45 @@
 
 <scroll-view scroll-view scroll-y="true" class="container">
   <view hidden="{{currentNavtab==0 ? false : true}}">
-    <block wx:for="{{feed}}" wx:for-index="key" wx:for-item="value">
-      <view class="item" bindtap="bindQuestionItemTap">
-        <view class="content">
-          <view class="question" id="{{value.question_id}}">
-            <!-- 通过自定义的module tools引用sub截取方法 -->
-            <text>{{tools.sub(value.question)}}</text>
+    <view wx:if="{{focusedQuestions.length>0}}">
+      <block wx:for="{{focusedQuestions}}" wx:key="id" wx:for-item="question">
+        <view class="item" id="{{question.id}}" bindtap="bindQuestionItemTap">
+          <view class="content">
+            <view class="question">
+              <!-- 通过自定义的module tools引用sub截取方法 -->
+              <text>{{tools.sub(question.title)}}</text>
+            </view>
           </view>
         </view>
-      </view>
-    </block>
+      </block>
+    </view>
+    <view wx:else class="none-focus">
+      <text>还没有关注,快关注一下吧^_^</text>
+    </view>
   </view>
   <view hidden="{{currentNavtab==1 ? false : true}}">
-    <block wx:for="{{focus}}" wx:for-index="key" wx:for-item="item">
-      <view class="feed-item" id="{{item.user_id}}" bindtap="bindAnswerItemTap">
-        <view class="feed-source">
-          <view class="avatar">
-            <image src="{{item.user_avatar}}"></image>
-          </view>
-          <text>{{item.user_name}}</text>
-        </view>
-        <view class="feed-content">
-          <view class="question" qid="{{question_id}}">
-            <view class="question-link">
-              <text>{{item.question_content}}</text>
+    <view wx:if="{{focusedUserAnswers.length>0}}">
+      <block wx:for="{{focusedUserAnswers}}" wx:key="id" wx:for-item="answer">
+        <view class="feed-item" id="{{answer.id}}" bindtap="bindAnswerItemTap">
+          <view class="feed-source">
+            <view class="avatar">
+              <image src="{{answer.user.avatarUrl}}"></image>
             </view>
-            <text class="answer-txt" aid="{{answer_id}}">{{item.answer_content}}</text>
+            <text>{{answer.user.nickName}}</text>
+          </view>
+          <view class="feed-content">
+            <view class="question">
+              <view class="question-link">
+                <text>{{answer.question.title}}</text>
+              </view>
+              <text class="answer-txt" aid="{{answer_id}}">{{answer.content}}</text>
+            </view>
           </view>
         </view>
-      </view>
-    </block>
+      </block>
+    </view>
+    <view wx:else class="none-focus">
+      <text>还没有关注,快关注一下吧^_^</text>
+    </view>
   </view>
 </scroll-view>

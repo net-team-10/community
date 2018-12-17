@@ -45,48 +45,39 @@ public class AnswerServiceImpl implements AnswerService {
     }
 
     @Override
-    public List<AnswerForQuestion> listFocusedUserAnswers(String nickName) {
-        List<User> users = userDAO.findAllByNickName(nickName);
-        User user = users.get(0);
-        List<UserMap> userMaps = userMapDao.getAllByUserId(user.getId());
-        List<AnswerForQuestion> answerForQuestions = new ArrayList<>();
+    public List<Answer> listFocusedUserAnswers(int userId) {
+        List<UserMap> userMaps = userMapDao.getAllByUserId(userId);
+        List<Answer> answers = new ArrayList<>();
         for(UserMap userMap:userMaps){
 //            AnswerForQuestion answerForQuestion = new AnswerForQuestion();
             //获取该用户关注的每一个人
             User focusedUser = userMap.getFocusedUser();
-            List<Answer> answers = answerDao.findAllByUserId(focusedUser.getId());
-            //对该用户关注的每一个人focusedUser,循环访问这个人所回答的所有问题
-            for (Answer answer:answers){
-                AnswerForQuestion answerForQuestion = new AnswerForQuestion();
-                answerForQuestion.setAnswer(answer);
-                answerForQuestion.setUser(focusedUser);
-                answerForQuestion.setQuestion(answer.getQuestion());
-                answerForQuestions.add(answerForQuestion);
+            List<Answer> focusedUserAnswers = answerDao.findAllByUserId(focusedUser.getId());
+            if(focusedUserAnswers.size()>0) {
+                Collections.sort(focusedUserAnswers);
+                answers.add(focusedUserAnswers.get(0));
             }
         }
-        Collections.sort(answerForQuestions);
-        return answerForQuestions;
+
+        return answers;
     }
 
     @Override
-    public Answer delAnswer(String nickName, int answerId) {
+    public Answer delAnswer(int answerId) {
         Answer answer = answerDao.findById(answerId);
         answer.setHide(1);
         answerDao.save(answer);
         return answer;
-//        answerDao.deleteById(answerId);
-//        return listAllAnswersForUser(nickName);
     }
 
     @Override
-    public List<Answer> listAllAnswersForUser(String nickName) {
-        List<User> users = userDAO.findAllByNickName(nickName);
-        User user = users.get(0);
-        List<Answer> answers = answerDao.findAllByUserId(user.getId());
+    public List<Answer> listAllAnswersForUser(int userId) {
+        List<Answer> answers = answerDao.findAllByUserId(userId);
         Collections.sort(answers);
         return answers;
     }
 
+    @Override
     public Answer getAnswerById(int answerId){
         return answerDao.findById(answerId);
     }

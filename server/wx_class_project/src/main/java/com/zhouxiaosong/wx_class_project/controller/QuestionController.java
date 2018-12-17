@@ -6,6 +6,7 @@ import com.zhouxiaosong.wx_class_project.service.QuestionService;
 import com.zhouxiaosong.wx_class_project.service.ServiceImpl.QuestionServiceImpl;
 import com.zhouxiaosong.wx_class_project.service.ServiceImpl.UserQuestionMapServiceImpl;
 import com.zhouxiaosong.wx_class_project.vo.AnswerForQuestion;
+import com.zhouxiaosong.wx_class_project.vo.QuestionVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,20 +28,28 @@ public class QuestionController {
     @Autowired
     private UserQuestionMapServiceImpl userQuestionMapService;
 
+    @RequestMapping(value = "/get", method = RequestMethod.POST)
+    public Question getOneQuestion(@RequestBody Map<String,String> requestBody){
+        int questionId = Integer.parseInt(requestBody.get("questionId"));
+        return questionService.getOneQuestion(questionId);
+    }
 
     @RequestMapping(value = "/del", method = RequestMethod.POST)
-    public List<Question> deleteQuestion(@RequestBody Map<String,String> requestBody){
-
-        String nickName = requestBody.get("nickName");
+    public Question hideOneQuestion(@RequestBody Map<String,String> requestBody){
         int questionId = Integer.parseInt(requestBody.get("questionId"));
-        return questionService.delQuestion(questionId, nickName);
+        return questionService.hideQuestion(questionId);
     }
 
     @RequestMapping(value = "/close", method = RequestMethod.POST)
     public Question closeQuestion(@RequestBody Map<String,String> requestBody){
-        String nickName = requestBody.get("nickName");
         int questionId = Integer.parseInt(requestBody.get("questionId"));
-        return questionService.closeQuestion(questionId);
+        return questionService.controlQuestion(questionId, 0);
+    }
+
+    @RequestMapping(value = "/open", method = RequestMethod.POST)
+    public Question openQuestion(@RequestBody Map<String,String> requestBody){
+        int questionId = Integer.parseInt(requestBody.get("questionId"));
+        return questionService.controlQuestion(questionId, 1);
     }
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
@@ -50,22 +59,57 @@ public class QuestionController {
 
     @RequestMapping(value = "/user/ask", method = RequestMethod.POST)
     public List<Question> listQuestionsForUser(@RequestBody Map<String,String> requestBody){
-        String nickName = requestBody.get("nickName");
-        return questionService.listUserSubmittedQuestions(nickName);
+        int userId = Integer.parseInt(requestBody.get("userId"));
+        return questionService.listUserSubmittedQuestions(userId);
     }
 
     @RequestMapping(value = "/focus", method = RequestMethod.POST)
     public UserQuestionMap focusQuestion(@RequestBody Map<String,String> requestBody){
-        String nickName = requestBody.get("nickName");
+        int userId = Integer.parseInt(requestBody.get("userId"));
         int questionId = Integer.parseInt(requestBody.get("questionId"));
-        return userQuestionMapService.focusQuestion(nickName,questionId);
+        return userQuestionMapService.focusQuestion(userId,questionId);
+    }
+
+    @RequestMapping(value = "/ignore", method = RequestMethod.POST)
+    public void notFocusQuestion(@RequestBody Map<String,String> requestBody){
+        int userId = Integer.parseInt(requestBody.get("userId"));
+        int questionId = Integer.parseInt(requestBody.get("questionId"));
+        userQuestionMapService.notFocusQuestion(userId,questionId);
+    }
+
+    @RequestMapping(value = "/check", method = RequestMethod.POST)
+    public QuestionVO checkFocusQuestion(@RequestBody Map<String,String> requestBody){
+        int userId = Integer.parseInt(requestBody.get("userId"));
+        int questionId = Integer.parseInt(requestBody.get("questionId"));
+
+        Question question =questionService.getOneQuestion(questionId);
+        Boolean isMyQuestion = false;
+        if(question.getUser().getId()==userId){
+            isMyQuestion = true;
+        }
+        Boolean focused =  userQuestionMapService.checkFocus(userId,questionId);
+
+        QuestionVO questionVO = new QuestionVO();
+        questionVO.setFocused(focused);
+        questionVO.setMyQuestion(isMyQuestion);
+        questionVO.setQuestion(question);
+
+        return questionVO;
     }
 
     @RequestMapping(value = "/user/answer", method = RequestMethod.POST)
     public List<AnswerForQuestion> listAnswerForUser(@RequestBody Map<String,String> requestBody){
-        String nickName = requestBody.get("nickName");
-        return questionService.listUserAnsweredQuestions(nickName);
+        int userId = Integer.parseInt(requestBody.get("userId"));
+        return questionService.listUserAnsweredQuestions(userId);
     }
+
+    @RequestMapping(value = "/focused", method = RequestMethod.POST)
+    public List<Question> userFocusedQuestions(@RequestBody Map<String,String> requestBody){
+        int userId = Integer.parseInt(requestBody.get("userId"));
+        return userQuestionMapService.userFocusedQuestions(userId);
+    }
+
+
 
 
 }

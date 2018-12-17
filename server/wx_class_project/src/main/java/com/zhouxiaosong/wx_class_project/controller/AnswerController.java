@@ -7,8 +7,11 @@ import com.zhouxiaosong.wx_class_project.domain.User;
 import com.zhouxiaosong.wx_class_project.service.QuestionService;
 import com.zhouxiaosong.wx_class_project.service.ServiceImpl.AnswerServiceImpl;
 import com.zhouxiaosong.wx_class_project.service.ServiceImpl.QuestionServiceImpl;
+import com.zhouxiaosong.wx_class_project.service.ServiceImpl.UserMapServiceImpl;
 import com.zhouxiaosong.wx_class_project.service.ServiceImpl.UserServiceImpl;
+import com.zhouxiaosong.wx_class_project.service.UserMapService;
 import com.zhouxiaosong.wx_class_project.vo.AnswerForQuestion;
+import com.zhouxiaosong.wx_class_project.vo.AnswerVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,10 +37,13 @@ public class AnswerController {
     @Autowired
     private QuestionServiceImpl questionService;
 
+    @Autowired
+    private UserMapServiceImpl userMapService;
+
     @RequestMapping(value = "/submit", method = RequestMethod.POST)
     public Answer submitAnswer(@RequestBody Map<String,String> requestBody){
-        String nickName = requestBody.get("nickName");
-        User user = userService.getUserByNickName(nickName);
+        int userId = Integer.parseInt(requestBody.get("userId"));
+        User user = userService.getUserById(userId);
         int questionId = Integer.parseInt(requestBody.get("questionId"));
         Question question = questionService.getQuestionById(questionId);
         String content = requestBody.get("content");
@@ -59,18 +65,41 @@ public class AnswerController {
         return answerService.listAllAnswersForQuestion(questionId);
     }
 
+    @RequestMapping(value = "/user/submitted", method = RequestMethod.POST)
+    public List<Answer> listUserAnswers(@RequestBody Map<String,String> requestBody){
+        int userId = Integer.parseInt(requestBody.get("userId"));
+        return answerService.listAllAnswersForUser(userId);
+    }
+
 
 
     @RequestMapping(value = "/user/focused", method = RequestMethod.POST)
-    public List<AnswerForQuestion> getFocusedUserAnswers(@RequestBody Map<String,String> requestBody){
-        String nickName = requestBody.get("nickName");
-        return answerService.listFocusedUserAnswers(nickName);
+    public List<Answer> getFocusedUserAnswers(@RequestBody Map<String,String> requestBody){
+        int userId = Integer.parseInt(requestBody.get("userId"));
+        return answerService.listFocusedUserAnswers(userId);
     }
 
     @RequestMapping(value = "/del", method = RequestMethod.POST)
     public Answer deleteAnswer(@RequestBody Map<String,String> requestBody){
-        String nickName = requestBody.get("nickName");
+
         int answerId = Integer.parseInt(requestBody.get("answerId"));
-        return answerService.delAnswer(nickName, answerId);
+        return answerService.delAnswer(answerId);
     }
+
+    @RequestMapping(value = "/get", method = RequestMethod.POST)
+    public AnswerVO getAnswer(@RequestBody Map<String,String> requestBody){
+        int userId = Integer.parseInt(requestBody.get("userId"));
+        int answerId = Integer.parseInt(requestBody.get("answerId"));
+        Answer answer = answerService.getAnswerById(answerId);
+        Boolean answererFocused = userMapService.checkUserFocused(userId, answer.getUser().getId());
+
+        AnswerVO answerVO = new AnswerVO();
+        answerVO.setAnswer(answer);
+        answerVO.setAnswererFocused(answererFocused);
+
+        return answerVO;
+
+    }
+
+
 }

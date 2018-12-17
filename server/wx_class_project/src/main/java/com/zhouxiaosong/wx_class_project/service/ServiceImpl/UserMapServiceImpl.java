@@ -23,17 +23,26 @@ public class UserMapServiceImpl implements UserMapService {
     private UserDAO userDao;
 
     @Override
-    public UserMap addFocusUser(String nickName, String focusNcikName) {
+    public UserMap addFocusUser(int userId, int focusedUserId) {
+        User user = userDao.findById(userId);
+        User focused = userDao.findById(focusedUserId);
         UserMap userMap = new UserMap();
-        List<User> users = userDao.findAllByNickName(nickName);
-        User user = users.get(0);
-
-        List<User> focusUsers = userDao.findAllByNickName(focusNcikName);
-        User focusUser = focusUsers.get(0);
-
         userMap.setUser(user);
-        userMap.setFocusedUser(focusUser);
-        return userMapDao.save(userMap);
+        userMap.setFocusedUser(focused);
 
+        return userMapDao.save(userMap);
     }
+
+    @Override
+    public Boolean checkUserFocused(int userId, int focusedUserId) {
+        List maps = userMapDao.getAllByUserIdAndFocusedUserId(userId,focusedUserId);
+        return maps.size()>0;
+    }
+
+    @Override
+    public void ignoreUser(int userId, int focusedUserId) {
+        userMapDao.deleteUserMapByUserIdAndFocusedUserId(userId, focusedUserId);
+    }
+
+
 }

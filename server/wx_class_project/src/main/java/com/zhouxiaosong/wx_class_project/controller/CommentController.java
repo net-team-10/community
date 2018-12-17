@@ -38,8 +38,8 @@ public class CommentController {
 
     @RequestMapping(value = "/submit", method = RequestMethod.POST)
     public Comment submitComment(@RequestBody Map<String,String> requestBody){
-        String nickName = requestBody.get("nickName");
-        User user = userService.getUserByNickName(nickName);
+        int userId = Integer.parseInt(requestBody.get("userId"));
+        User user = userService.getUserById(userId);
         int answerId = Integer.parseInt(requestBody.get("answerId"));
         Answer answer = answerService.getAnswerById(answerId);
         String content = requestBody.get("content");
@@ -54,11 +54,18 @@ public class CommentController {
         return commentService.submitComment(comment);
     }
 
+    @RequestMapping(value = "/answer", method = RequestMethod.POST)
+    public List<Comment> getAnswerComments(@RequestBody Map<String, String> requestBody){
+        int answerId = Integer.parseInt(requestBody.get("answerId"));
+        return commentService.getAnswerComments(answerId);
+
+    }
+
 
     @RequestMapping(value = "/user", method = RequestMethod.POST)
-    public List<CommentForAnswer> getCommentForAnswer(@RequestBody Map<String,String> requestBody){
-        String nickName = requestBody.get("nickName");
-        return commentService.getCommentForAnswer(nickName);
+    public List<Comment> getCommentForUser(@RequestBody Map<String,String> requestBody){
+        int userId = Integer.parseInt(requestBody.get("userId"));
+        return commentService.getCommentForUser(userId);
     }
 
 }

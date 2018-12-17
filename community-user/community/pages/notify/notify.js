@@ -8,7 +8,7 @@ Page({
    */
 
   data: {
-    questions: [],
+    comments: [],
   },
 
   /**
@@ -17,72 +17,50 @@ Page({
   onLoad: function(options) {
 
     //调用应用实例的方法获取全局数据
-
+    this.getData();
   },
 
-  bindItemTap: function(options) {
+  bindItemTap: function(e) {
+    var answerId = e.currentTarget.id
     wx.navigateTo({
-      url: '../comment/comment',
+      url: '../comment/comment?answerId='+answerId,
     })
   },
 
   //使用本地 fake 数据实现刷新效果
   getData: function() {
-    var questions = util.getData3();
-    console.log("loaddata");
-    var questions_data = questions.data;
-    this.setData({
-      questions: questions_data,
-    });
-  },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-    this.getData();
-    this.onLoad()
+    var that = this
+    var url = app.globalData.domain+"comment/user"
+    var data={
+      userId:app.globalData.userId
+    }
+    wx.request({
+      url: url,
+      data:data,
+      method: "POST",
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        var comments = res.data
+        that.setData({
+          comments:comments
+        })
+      }
+
+    })
+    
+
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
+    this.onLoad()
   }
+
+  
 })

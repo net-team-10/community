@@ -31,19 +31,36 @@ public class QuestionServiceImpl implements QuestionService {
     private AnswerDAO answerDao;
 
     @Override
+    public Question getOneQuestion(int questionId) {
+        return questionDao.findById(questionId);
+    }
+
+    @Override
     public Question submitQuestion(Question question) {
         //这边不判断去重
         return questionDao.save(question);
     }
 
     @Override
-    public List<Question> delQuestion(int questionId, String userNickName) {
-        questionDao.deleteQuestionById(questionId);
-        return listUserSubmittedQuestions(userNickName);
+    public List<Question> delQuestion(int questionId, int userId) {
+        return null;
     }
 
     @Override
-    public Question closeQuestion(int questionId) {
+    public Question controlQuestion(int questionId, int state) {
+        Question question = questionDao.findById(questionId);
+        if(question!=null){
+            question.setState(state);
+            return questionDao.save(question);
+        }
+        //没有找到
+        Question default_question = new Question();
+        default_question.setId(-1);
+        return default_question;
+    }
+
+    @Override
+    public Question hideQuestion(int questionId) {
         Question question = questionDao.findById(questionId);
         if(question!=null){
             question.setHide(1);
@@ -63,20 +80,16 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public List<Question> listUserSubmittedQuestions(String userNickName) {
-        List<User> users = userDao.findAllByNickName(userNickName);
-        User user = users.get(0);
-        List<Question> questions = questionDao.findAllByUserId(user.getId());
+    public List<Question> listUserSubmittedQuestions(int userId) {
+        List<Question> questions = questionDao.findAllByUserId(userId);
         //按时间顺序倒排
         Collections.sort(questions);
         return questions;
     }
 
     @Override
-    public List<AnswerForQuestion> listUserAnsweredQuestions(String userNickName) {
-        List<User> users = userDao.findAllByNickName(userNickName);
-        User user = users.get(0);
-        List<Answer> answers = answerDao.findAllByUserId(user.getId());
+    public List<AnswerForQuestion> listUserAnsweredQuestions(int userId) {
+        List<Answer> answers = answerDao.findAllByUserId(userId);
         Collections.sort(answers);
 
         List<AnswerForQuestion> answerForQuestions = new ArrayList<>();

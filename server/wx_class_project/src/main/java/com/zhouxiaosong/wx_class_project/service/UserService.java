@@ -16,4 +16,6 @@ public interface UserService {
 
     List<User> deleteUserByNickName(String nickName);
 
+    User getUserById(int userId);
+
 }

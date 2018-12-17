@@ -86,12 +86,12 @@ public class UserController {
 
     @RequestMapping(value = "/submit", method = RequestMethod.POST)
     public Question submitQuestion(@RequestBody Map<String, String> requestBody){
-        String nickName = requestBody.get("nickName");
+        int userId = Integer.parseInt(requestBody.get("userId"));
+        User user = userService.getUserById(userId);
         String title = requestBody.get("title");
         String content = requestBody.get("content");
         String time = requestBody.get("time");
         int state = Integer.parseInt(requestBody.get("state"));
-        User user = userService.getUserByNickName(nickName);
         Question question = new Question();
         question.setTitle(title);
         question.setContent(content);
@@ -106,18 +106,25 @@ public class UserController {
 
     @RequestMapping(value = "/focus", method = RequestMethod.POST)
     public UserMap focusUser(@RequestBody Map<String, String> requestBody){
-        String nickName = requestBody.get("nickName");
-        String focusNickName = requestBody.get("focusNickName");
-        return userMapService.addFocusUser(nickName,focusNickName);
+        int userId = Integer.parseInt(requestBody.get("userId"));
+        int focusedUserId = Integer.parseInt(requestBody.get("focusedUserId"));
+        return userMapService.addFocusUser(userId,focusedUserId);
+    }
+
+    @RequestMapping(value = "/ignore", method = RequestMethod.POST)
+    public void ignoreUser(@RequestBody Map<String, String> requestBody){
+        int userId = Integer.parseInt(requestBody.get("userId"));
+        int focusedUserId = Integer.parseInt(requestBody.get("focusedUserId"));
+        userMapService.ignoreUser(userId,focusedUserId);
     }
 
 
     @RequestMapping(value = "/question/focus", method = RequestMethod.POST)
     public UserQuestionMap focusQuestion(@RequestBody Map<String, String> requestBody){
 
-        String nickName = requestBody.get("nickName");
+        int userId = Integer.parseInt(requestBody.get("userId"));
         int questionId = Integer.parseInt(requestBody.get("questionId"));
-        return userQuestionMapService.focusQuestion(nickName,questionId);
+        return userQuestionMapService.focusQuestion(userId,questionId);
     }
 
 

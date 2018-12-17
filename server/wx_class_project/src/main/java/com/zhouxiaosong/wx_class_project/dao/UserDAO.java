@@ -16,6 +16,8 @@ public interface UserDAO extends JpaRepository<User, Integer>, JpaSpecificationE
     @Transactional
     User save(User user);
 
+    User findById(int userId);
+
 
 
 }

@@ -1,5 +1,6 @@
 package com.zhouxiaosong.wx_class_project.service;
 
+import com.zhouxiaosong.wx_class_project.domain.Answer;
 import com.zhouxiaosong.wx_class_project.domain.User;
 import com.zhouxiaosong.wx_class_project.domain.UserMap;
 
@@ -11,5 +12,10 @@ import java.util.List;
 public interface UserMapService {
 
     //新增关注用户
-    public UserMap addFocusUser(String nickName, String focusNcikName);
+    UserMap addFocusUser(int userId, int focusedUserId);
+
+    Boolean checkUserFocused(int userId, int focusedUserId);
+
+    void ignoreUser(int userId, int focusedUserId);
+
 }

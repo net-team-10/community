@@ -7,23 +7,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    questionId:"",
     focus: false,
     texts: "",
     answer_content: "",
-    min: 10, //最少字数
-    max: -1, //最多字数
-
-    items: [{
-        name: 'REAL',
-        value: '实名',
-        checked: 'true'
-      },
-      {
-        name: 'UNKNOWN',
-        value: '匿名'
-      },
-    ],
+    anonymous: false,
 
   },
 
@@ -31,63 +19,67 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    var questionId = options.id
+    this.setData({
+      questionId:questionId
+    })
   },
 
   onTap: function(e) {
-    // var qid = e.currentTarget.id;
-    // app.requestDetailed = qid;
-    // console.log(qid);
-
-    var answer_content = this.data.answer_content;
-    var date = new Date();
-
-    console.log("answer_content:" + answer_content.length);
-
-    // console.log("answer_content:" + (answer_content.length > 0));
-
-
+  
+    var answer_content = this.data.answer_content
 
     if (answer_content.length < 10) {
       this.setData({
         texts: "回答不能少于10个字哦^_^"
       })
     } else {
-      console.log("跳");
-      wx.redirectTo({
-        url: '../detail/detail'
+
+      var date = util.formatDate(new Date())
+      var anony = this.data.anonymous
+      var state = 0
+      if(anony){
+        state = 1
+      }
+
+      var data = {
+        userId: app.globalData.userId,
+        content: answer_content,
+        time: date,
+        state: state,
+        hide: 0,
+        questionId:this.data.questionId
+      }
+
+      var url = app.globalData.domain +'answer/submit'
+      wx.request({
+          url: url,
+          data:data,
+          method: "POST",
+          header:{
+              'content-type':'application/json'
+          },
+          success(res){
+          }
       })
 
+      wx.showLoading({
+        title: '正在发布',
+        mask: true
+      })
+
+      var pageUrl = '../detail/detail?id='+this.data.questionId
+
+      setTimeout(function () {
+        wx.hideLoading()
+        wx.redirectTo({
+          url: pageUrl
+        })
+      }, 1000)
+      
     }
 
-    // wx.request({
-    //     url: 'http://localhost:9090/user/submit',
-    //     data:{
-    //         nickname:,
-    //         title:title,
-    //         content:content,
-    //         time:date,
-    //         state:1
-
-    //     },
-    //     method: "POST",
-    //     header:{
-    //         'content-type':'application/json'
-    //     },
-    //     success(res){
-    //         console.log(res.data)
-    //     }
-    // })
-
-    // console.log("tap")
-
   },
-
-  textBlur: function(e) {
-    var txt = e.detail.value;
-    console.log("bindBlur事件" + txt);
-  },
-
   bindFormSubmit(e) {
     var txt = e.detail.value;
     // console.log(e.detail.value.textarea)
@@ -97,8 +89,11 @@ Page({
   inputs: function(e) {
     // 获取输入框的内容
     var value = e.detail.value;
+    this.setData({
+      answer_content: value
+    });
     // 获取输入框内容的长度
-    var len = parseInt(value.length);
+    var len = value.length;
 
     //最少字数限制
     if (len <= this.data.min)
@@ -109,66 +104,15 @@ Page({
       this.setData({
         texts: " "
       })
-
     };
 
+    
 
+  },
+
+  change(e) {
     this.setData({
-      answer_content: e.detail.value
-    });
-
-  },
-
-  radioChange(e) {
-    console.log('radio发生change事件，携带value值为：', e.detail.value)
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
+      anonymous:e.detail.value
+    })
   }
 })

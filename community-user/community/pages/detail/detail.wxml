@@ -3,19 +3,25 @@
 <wxs src="../../util/subutil.wxs" module="tools" />
 <view class="page-header">
   <view class="question-title">
-    <text>{{problem}}</text>
+    <text>{{question.title}}</text>
   </view>
   <view class="question-content">
-    <text>问题描述问题描述问题描述问题描述问题描述问题描述问题描述问题描述问题描述问题描述问题描述问题描述问题描述问题描述问题描述问题描述问题描述
-    </text>
+    <text>{{question.content}}</text>
+    
   </view>
 
 </view>
 <view>
   <view class="add">
     <view class="write-container" bindtap='onText'>
-      <image src="../../images/write.png"></image>
-      <text>添加回答</text>
+      <block wx:if="{{isClose}}">
+        <text>该问题已关闭</text>
+      </block>
+      <block wx:else>
+        <image src="../../images/write.png"></image>
+        <text>添加回答</text>
+      </block>
+      
     </view>
     <view class="care" bindtap='onBtn'>
       {{message}}
@@ -26,19 +32,37 @@
   <text>所有回答</text>
 </view>
 <scroll-view scroll-y="true">
-  <block wx:for="{{answers}}" wx:for-index="key" wx:for-item="value">
-    <view class="answer-item flex-wrp" id="{{value.answer_id}}" bindtap="bindItemTap">
+  <view wx:if="{{!noAnswer}}">
+    <block wx:for="{{answers}}" wx:key="id" wx:for-item="answer">
+    <view wx:if="{{answer.hide==0}}" class="answer-item flex-wrp" id="{{answer.id}}" bindtap="bindItemTap">
       <view class="avatar flex-item">
-        <image src="{{value.answerer_icon}}"></image>
+        <view wx:if="{{answer.state==1}}">
+          <image src="../../images/user.png"></image>
+        </view>
+        <view wx:else>
+          <image src="{{answer.user.avatarUrl}}"></image>
+        </view>
+        
       </view>
       <view class="answer-content flex-item">
-        <text class="answerer_name">{{value.answerer_name}}  回答了问题</text>
-        <text class="content">{{tools.sub2(value.answer_content)}}</text>
+        <view wx:if="{{answer.state==1}}">
+          <text class="answerer_name">匿名用户  回答了问题</text>
+        </view>
+        <view wx:else>
+          <text class="answerer_name">{{answer.user.nickName}}  回答了问题</text>
+        </view>
+        
+        <text class="content">{{tools.sub2(answer.content)}}</text>
+       
       </view>
     </view>
     <view class="showtime">
-      <text>{{value.answer_time}}</text>
+      <text>{{answer.time}}</text>
     </view>
   </block>
-  <view class="blank"></view>
+  </view>
+  <view wx:else class='none-answer'>
+    <text class="text">还没有人回答哟，抢沙发，抢沙发^_^</text>
+  </view>
+  
 </scroll-view>

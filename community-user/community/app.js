@@ -5,6 +5,8 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
+    this.globalData.domain = "http://localhost:9090/"
+
     // 登录
     wx.login({
       success: res => {

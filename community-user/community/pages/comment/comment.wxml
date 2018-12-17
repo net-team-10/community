@@ -2,7 +2,7 @@
 <wxs src="../../util/subutil.wxs" module="tools" />
 
 <view class='page-header'>
-  <text>{{problem}}</text>
+  <text>{{question.title}}</text>
 </view>
 <view class="line">
   <text>回答详情</text>
@@ -13,13 +13,25 @@
     <view class="bg-half"></view>
     <view class="answerer flex-wrp">
       <view class="avatar flex-item">
-        <image src="{{answer.answerer_icon}}"></image>
+        <view wx:if="{{answer.state==0}}">
+          <image src='{{answerer.avatarUrl}}'></image>
+        </view>
+        <view wx:else>
+          <image src='../../images/user.png'></image>
+        </view>
       </view>
       <view class="answerer-info flex-item">
-        <text class="answerer-name">{{answer.answerer_name}}</text>
-        <text class="answerer-des">{{answer.answer_time}}</text>
+        <view class="comment-header-text">
+          <view wx:if="{{answer.state==0}}">
+            <text class="answerer-name">{{answerer.nickName}}</text>
+          </view>
+          <view wx:else>
+            <text class="answerer-name">匿名用户</text>
+          </view>
+        </view>
+        <text class="answerer-des">{{answer.time}}</text>
       </view>
-      <view class="follow flex-item" bindtap="careAnswerer">
+      <view wx:if="{{answer.state==0}}" class="follow flex-item" bindtap="careAnswerer">
         <text> {{message}}</text>
       </view>
     </view>
@@ -28,9 +40,7 @@
 
 <scroll-view scroll-y="true" enable-back-to-top="true">
   <view class="answer-content">
-    <text>
-            {{answer.answer_content}}  
-        </text>
+    <text>{{answer.content}}  </text>
 
   </view>
 
@@ -39,18 +49,18 @@
   </view>
 
   <view>
-    <block wx:for="{{comments}}" wx:for-index="key" wx:for-item="comment">
+    <block wx:for="{{comments}}" wx:key="id" wx:for-item="comment">
       <view class="comment">
         <view class="comment-header">
-          <image src='{{comment.answerer_icon}}'></image>
+          <image src='{{comment.user.avatarUrl}}'></image>
           <view class="comment-header-text">
-            <text class='name'>{{comment.answerer_name}}</text>
-            <text class='date'>{{comment.answer_time}}</text>
+            <text class='name'>{{comment.user.nickName}}</text>
+            <text class='date'>{{comment.time}}</text>
           </view>
 
         </view>
         <view class='comment-content'>
-          <text>{{tools.sub(comment.answer_content)}}</text>
+          <text>{{comment.content}}</text>
         </view>
       </view>
 
@@ -65,8 +75,7 @@
 </scroll-view>
 <view class="answer-footer flex-wrp">
   <view class='operation'>
-    <!-- <image class='avatar' src="{{userInfo.avatarUrl}}"></image> -->
-    <image class='avatar' src="../../images/icon1.jpeg"></image>
+    <image class='avatar' src="{{userInfo.avatarUrl}}"></image>
     <view>
       <input placeholder='评论一下吧^_^' bindinput='commentInput' value="{{comment}}"></input>
     </view>

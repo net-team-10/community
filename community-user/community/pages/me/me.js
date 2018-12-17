@@ -10,16 +10,15 @@ Page({
     navTab: ["提问", "回答"],
     currentNavtab: "0",
     questions: [],
-    focus: [],
+    answers: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-    var that = this;
+  onLoad: function() {
+    
     this.getData();
-    this.getData3();
   },
 
   switchTab: function(e) {
@@ -29,30 +28,55 @@ Page({
   },
 
   getData: function() {
-    var questions = util.getData2();
-    var questions_data = questions.data;
-    this.setData({
-      questions: questions_data
-    });
-  },
+    var that = this
+    var url = app.globalData.domain + "question/user/ask"
+    var data = {
+      userId: app.globalData.userId
+    }
+    wx.request({
+      url: url,
+      data: data,
+      method: "POST",
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        var questions = res.data
+        that.setData({
+          questions: questions
+        })
+      }
+    })
 
-  getData3: function() {
-    var focus = util.getData3();
-    var focus = focus.data;
-    this.setData({
-      focus: focus,
-      focus_data_length: focus.length
-    });
+    url = app.globalData.domain + "answer/user/submitted"
+    wx.request({
+      url: url,
+      data: data,
+      method: "POST",
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        var answers = res.data
+        that.setData({
+          answers: answers
+        })
+      }
+
+    })
+    
   },
 
   bindQuestionItemTap(e) {
+    var id = e.currentTarget.id
     wx.navigateTo({
-      url: '../detail/detail',
+      url: '../detail/detail?id='+id,
     })
   },
   bindAnswerItemTap(e) {
+    var id = e.currentTarget.id
     wx.navigateTo({
-      url: '../comment/comment',
+      url: '../comment/comment?answerId='+id,
     })
   },
   /**
@@ -66,41 +90,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    this.onLoad()
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  }
+ 
 })

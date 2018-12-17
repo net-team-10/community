@@ -1,22 +1,28 @@
-// pages/comment/comment.js
-// pages/discovery/discovery.js
 var util = require('../../util/util.js')
 var app = getApp()
 
 Page({
 
   data: {
-    problem: "选择 Kindle 而不是纸质书的原因是什么?",
     plain: true,
+    userInfo:{},
+    question:{},
     answer: {},
+    answerer:{},
     comments: [],
     message: "关注答主",
-    userInfo: {},
+    answerId:"",
     comment: ""
   },
 
   onLoad: function(options) {
-    this.getData();
+    var userInfo = app.globalData.userInfo
+    var answerId = options.answerId
+    this.setData({
+      answerId: answerId,
+      userInfo:userInfo
+    })
+    this.getData(answerId);
     // console.log(app.globalData.userInfo)
     // this.setData({
     //     userInfo:app.globalData.userInfo
@@ -33,23 +39,34 @@ Page({
         duration: 1000
       })
     } else {
-      console.log(comment)
+      
       var date = new Date()
       var dateString = util.formatDate(date)
-      console.log(dateString)
-      // wx.request({
-      //     url: 'http://localhost:9090/user/add',
-      //     data:{
+      
+      var url = app.globalData.domain + 'comment/submit'
+      var data = {
+        answerId: this.data.answerId,
+        userId: app.globalData.userId,
+        content:this.data.comment,
+        time: dateString
+      }
+      var that = this
 
-      //     },
-      //     method: "POST",
-      //     header:{
-      //         'content-type':'application/json'
-      //     },
-      //     success(res){
-      //         console.log(res.data)
-      //     }
-      // })
+      wx.request({
+        url: url,
+        data: data,
+        method: "POST",
+        header: {
+          'content-type': 'application/json'
+        },
+        success(res) {
+          var options={
+            answerId: that.data.answerId
+          }
+          that.onLoad(options)
+        }
+      })
+     
       this.setData({
         comment: ""
       })
@@ -62,16 +79,66 @@ Page({
     })
   },
 
-  getData: function() {
+  getData: function(answerId) {
     var answers = util.getNext()
     var answers_data = answers.data
     var comments = util.getNext()
     var comments_data = comments.data
 
-    this.setData({
-      answer: answers_data[0],
-      comments: comments_data
+    var url = app.globalData.domain + 'answer/get'
+    var data = {
+      answerId: this.data.answerId,
+      userId: app.globalData.userId
+    }
+
+    var that = this
+
+    wx.request({
+      url: url,
+      data: data,
+      method: "POST",
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+      //   console.log(res.data)
+        var answerVO = res.data
+        var answer = answerVO.answer
+        var answerer = answer.user
+        var question = answer.question
+        var foc = answerVO.answererFocused
+        var message = "";
+        if (foc){
+          message = "取消关注"
+        }else{
+          message = "关注答主"
+        }
+        that.setData({
+          answer: answer,
+          answerer: answerer,
+          question: question,
+          message:message
+        })
+      }
     })
+
+    url = app.globalData.domain + 'comment/answer'
+
+    wx.request({
+      url: url,
+      data: data,
+      method: "POST",
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        that.setData({
+          comments: res.data
+        })
+      }
+    })
+
+    
 
   },
   careAnswerer: function() {
@@ -79,21 +146,58 @@ Page({
       this.setData({
         message: "取消关注"
       });
-      var that = this
+
+      var url = app.globalData.domain + 'user/focus'
+      var data = {
+        userId:app.globalData.userId,
+        focusedUserId:this.data.answerer.id
+      }
+
+      wx.request({
+        url: url,
+        data: data,
+        method: "POST",
+        header: {
+          'content-type': 'application/json'
+        },
+        success(res) {
+        }
+      })
+
+
       wx.showToast({
         title: '关注答主成功',
         icon: 'success',
-        duration: 1000
+        duration: 1000,
+        mask:true
       });
     } else if (this.data.message == "取消关注") {
       this.setData({
         message: "关注答主"
       });
-      var that = this
+
+      var url = app.globalData.domain + 'user/ignore'
+      var data = {
+        userId: app.globalData.userId,
+        focusedUserId: this.data.answerer.id
+      }
+
+      wx.request({
+        url: url,
+        data: data,
+        method: "POST",
+        header: {
+          'content-type': 'application/json'
+        },
+        success(res) {
+        }
+      })
+
       wx.showToast({
         title: '已取消关注',
         icon: 'success',
-        duration: 1000
+        duration: 1000,
+        mask: true
       });
     }
   },

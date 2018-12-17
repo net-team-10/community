@@ -9,12 +9,11 @@
       <text class="ask">提问</text>
     </view>
   </view>
-  <block wx:for="{{feed}}" wx:for-index="key" wx:for-item="value">
-    <view class="feed-item">
+  <block wx:for="{{questions}}" wx:key="id" wx:for-item="question">
+    <view wx:if="{{question.hide==0}}" class="feed-item">
       <view class="feed-content">
-        <view class="question" id="{{value.question_id}}" bindtap="bindItemTap">
-          <!-- 通过自定义的module名称tools引用sub截取方法 -->
-          <text>{{tools.sub(value.question)}}</text>
+        <view class="question" id="{{question.id}}" bindtap="bindItemTap">
+          <text>{{tools.sub(question.title)}}</text>
         </view>
       </view>
     </view>

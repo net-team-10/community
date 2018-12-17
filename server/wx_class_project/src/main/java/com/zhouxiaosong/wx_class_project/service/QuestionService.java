@@ -11,17 +11,21 @@ import java.util.List;
  */
 public interface QuestionService {
 
+    Question getOneQuestion(int questionId);
+
     Question submitQuestion(Question question);
 
-    List<Question> delQuestion(int questionId, String userNickName);
+    List<Question> delQuestion(int questionId, int userId);
 
-    Question closeQuestion(int questionId);
+    Question controlQuestion(int questionId, int state);
+
+    Question hideQuestion(int questionId);
 
     List<Question> listAllQuestions();
 
-    List<Question> listUserSubmittedQuestions(String userNickName);
+    List<Question> listUserSubmittedQuestions(int userId);
 
-    List<AnswerForQuestion> listUserAnsweredQuestions(String userNickName);
+    List<AnswerForQuestion> listUserAnsweredQuestions(int userId);
 
     Question getQuestionById(int questionId);
 }

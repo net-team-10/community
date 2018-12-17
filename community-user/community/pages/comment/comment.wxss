@@ -76,6 +76,7 @@
 
 .answerer .answerer-info {
   flex: 5;
+  width:300rpx;
   text-align: left;
   padding: 10rpx 20rpx;
   line-height: 38rpx;
@@ -112,6 +113,7 @@
 }
 
 .answer-content {
+  margin-left:20rpx;
   padding: 0rpx 20rpx 30rpx 40rpx;
   background: #fff;
 }
@@ -128,20 +130,21 @@
   flex-direction: column;
 }
 
-.comment image {
+.comment-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.comment-header image{
   height: 80rpx;
   width: 80rpx;
   border-radius: 50%;
 }
 
-.comment-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
 .comment-header-text {
-  width: 100%;
+  width: 580rpx;
   font-size: 28rpx;
   color: #999;
   display: flex;
@@ -160,7 +163,7 @@
 
 .comment-content {
   font-size: 30rpx;
-  margin-left: 80rpx;
+  margin-left: 100rpx;
   color: #454545;
 }
 

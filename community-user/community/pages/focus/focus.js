@@ -9,17 +9,15 @@ Page({
   data: {
     navTab: ["问题", "答主"],
     currentNavtab: "0",
-    feed: []
+    focusedQuestions:[],
+    focusedUserAnswers:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-    console.log("loaddata");
-    var that = this;
+  onLoad: function() {
     this.getData();
-    this.getData2();
   },
   switchTab: function(e) {
     this.setData({
@@ -28,7 +26,7 @@ Page({
   },
 
   onShow: function() {
-
+    this.onLoad()
   },
 
 
@@ -37,33 +35,56 @@ Page({
   },
 
   bindQuestionItemTap(e) {
+    var questionId = e.currentTarget.id
     wx.navigateTo({
-      url: '../detail/detail',
+      url: '../detail/detail?id='+questionId,
     })
   },
   bindAnswerItemTap(e) {
+    var answerId = e.currentTarget.id
     wx.navigateTo({
-      url: '../comment/comment',
+      url: '../comment/comment?answerId='+answerId,
     })
   },
 
   getData: function() {
-    var focus = util.getData3();
-    console.log("loaddata");
-    var focus = focus.data;
-    this.setData({
-      focus: focus,
-      focus_data_length: focus.length
-    });
-  },
 
-  //使用本地 fake 数据实现刷新效果
-  getData2: function() {
-    var feed = util.getData2();
-    var feed_data = feed.data;
-    this.setData({
-      feed: feed_data,
-      feed_length: feed_data.length
-    });
-  },
+    var that = this
+    var url = app.globalData.domain + "question/focused"
+    var data = {
+      userId: app.globalData.userId
+    }
+    wx.request({
+      url: url,
+      data: data,
+      method: "POST",
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        var questions = res.data
+        that.setData({
+          focusedQuestions:questions
+        })
+      }
+    })
+
+    url = app.globalData.domain + "answer/user/focused"
+    wx.request({
+      url: url,
+      data: data,
+      method: "POST",
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        var answers = res.data
+        that.setData({
+          focusedUserAnswers:answers
+        })
+      }
+
+    })
+
+  }
 })

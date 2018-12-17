@@ -26,12 +26,6 @@ Page({
   onTap: function(e) {
     var title = this.data.title;
     var content = this.data.content;
-    var date = new Date();
-
-    console.log("title:" + (title.length > 0));
-    console.log("content:" + (content.length > 0));
-
-
 
     if (title.length == 0) {
       this.setData({
@@ -42,31 +36,49 @@ Page({
         texts: "问题描述不能少于10个字哦^_^"
       })
     } else {
-      wx.switchTab({
-        url: '../questions/questions'
+
+      var date = util.formatDate(new Date())
+      var data = {
+        userId: app.globalData.userId,
+        title: title,
+        content: content,
+        time: date,
+        state: 1,
+        hide: 0,
+      }
+
+      // console.log(data)
+      var url = app.globalData.domain +"user/submit"
+      wx.request({
+          url: url,
+          data:data,
+          method: "POST",
+          header:{
+              'content-type':'application/json'
+          },
+          success(res){
+            
+          }
       })
+
+      wx.showLoading({
+        title: '正在发布',
+        mask: true
+      })
+
+      setTimeout(function () {
+        wx.hideLoading()
+        wx.switchTab({
+          url: '../questions/questions',
+        })
+      }, 1000)
+
+
     }
 
-    // wx.request({
-    //     url: 'http://localhost:9090/user/submit',
-    //     data:{
-    //         nickname:,
-    //         title:title,
-    //         content:content,
-    //         time:date,
-    //         state:1
 
-    //     },
-    //     method: "POST",
-    //     header:{
-    //         'content-type':'application/json'
-    //     },
-    //     success(res){
-    //         console.log(res.data)
-    //     }
-    // })
 
-    // console.log("tap")
+
 
 
 
