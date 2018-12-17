@@ -1,82 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="06ea1820-15c3-4927-a327-c492622624ed" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/vo/AnswerVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/vo/QuestionVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/data/focus_person.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/data/focus_person.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/pages/answer/answer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/pages/answer/answer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/pages/answer/answer.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/pages/answer/answer.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/pages/ask/ask.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/pages/ask/ask.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/pages/ask/ask.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/pages/ask/ask.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/pages/ask/ask.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/pages/ask/ask.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/pages/comment/comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/pages/comment/comment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/pages/comment/comment.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/pages/comment/comment.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/pages/comment/comment.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/pages/comment/comment.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/pages/detail/detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/pages/detail/detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/pages/detail/detail.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/pages/detail/detail.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/pages/detail/detail.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/pages/detail/detail.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/pages/focus/focus.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/pages/focus/focus.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/pages/focus/focus.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/pages/focus/focus.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/pages/focus/focus.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/pages/focus/focus.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/pages/notify/notify.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/pages/notify/notify.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/pages/notify/notify.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/pages/notify/notify.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/pages/notify/notify.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/pages/notify/notify.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/pages/questions/questions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/pages/questions/questions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/pages/questions/questions.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/pages/questions/questions.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/pages/welcome/welcome.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/pages/welcome/welcome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/pages/welcome/welcome.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/pages/welcome/welcome.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/util/subutil.wxs" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/util/subutil.wxs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../community-user/community/util/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../community-user/community/util/util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../community/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../community/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../community/community.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/controller/AnswerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/controller/AnswerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/controller/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/controller/QuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/controller/QuestionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/controller/TestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/dao/QuestionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/dao/QuestionDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/dao/UserMapDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/dao/UserMapDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/dao/UserQuestionMapDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/dao/UserQuestionMapDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/AnswerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/AnswerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/CommentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/QuestionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/ServiceImpl/AnswerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/ServiceImpl/AnswerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/ServiceImpl/CommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/ServiceImpl/CommentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/ServiceImpl/QuestionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/ServiceImpl/QuestionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/ServiceImpl/UserMapServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/ServiceImpl/UserMapServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/ServiceImpl/UserQuestionMapServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/ServiceImpl/UserQuestionMapServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/ServiceImpl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/ServiceImpl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/UserMapService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/UserMapService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/UserQuestionMapService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/UserQuestionMapService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/controller/AnswerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/controller/AnswerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/controller/CommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/controller/CommentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/controller/QuestionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/controller/QuestionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/controller/TestController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/dao/AnswerDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/dao/AnswerDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/dao/CommentDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/dao/CommentDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/dao/QuestionDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/dao/QuestionDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/dao/UserDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/dao/UserMapDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/dao/UserMapDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/dao/UserQuestionMapDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/dao/UserQuestionMapDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/domain/Answer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/domain/Answer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/domain/Comment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/domain/Comment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/domain/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/domain/Question.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/domain/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/domain/UserMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/domain/UserMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/domain/UserQuestionMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/domain/UserQuestionMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/service/AnswerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/service/AnswerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/service/CommentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/service/CommentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/service/QuestionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhouxiaosong/wx_class_project/service/QuestionService.class" afterDir="false" />
-    </list>
+    <list default="true" id="06ea1820-15c3-4927-a327-c492622624ed" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,11 +13,12 @@
     <session id="1617942309">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="2" />
+          <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -136,7 +62,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/dao/AnswerDAO.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="304">
-              <caret line="22" column="34" lean-forward="true" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+              <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -162,12 +88,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/ServiceImpl/AnswerServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
+            <state relative-caret-position="1140">
               <caret line="73" column="41" selection-start-line="73" selection-start-column="41" selection-end-line="73" selection-end-column="41" />
-              <folding>
-                <element signature="e#2576#2577#0" expanded="true" />
-                <element signature="e#2627#2628#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -175,8 +97,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/controller/AnswerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
+            <state relative-caret-position="1007">
+              <caret line="72" selection-start-line="72" selection-end-line="72" />
             </state>
           </provider>
         </entry>
@@ -184,8 +106,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/vo/AnswerForQuestion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+            <state relative-caret-position="247">
+              <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -194,7 +116,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/UserMapService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -202,8 +124,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/QuestionService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="19" column="56" lean-forward="true" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
+            <state relative-caret-position="285">
+              <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -211,7 +133,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/ServiceImpl/QuestionServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
+            <state relative-caret-position="1387">
               <caret line="90" column="49" selection-start-line="90" selection-start-column="49" selection-end-line="90" selection-end-column="49" />
             </state>
           </provider>
@@ -220,8 +142,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/controller/QuestionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
-              <caret line="103" column="5" lean-forward="true" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
+            <state relative-caret-position="526">
+              <caret line="103" column="5" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -287,7 +209,6 @@
     </navigator>
     <panes>
       <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -400,6 +321,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -532,17 +454,18 @@
       <workItem from="1544962649899" duration="8944000" />
       <workItem from="1545025373378" duration="2403000" />
       <workItem from="1545032803515" duration="4311000" />
+      <workItem from="1545039115659" duration="82000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26181000" />
+    <option name="totallyTimeSpent" value="26263000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16950959" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17110874" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -712,9 +635,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -753,13 +673,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/controller/TestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/controller/TestController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/dao/CommentDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -770,39 +684,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/dao/AnswerDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
-          <caret line="22" column="34" lean-forward="true" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/ServiceImpl/AnswerServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="73" column="41" selection-start-line="73" selection-start-column="41" selection-end-line="73" selection-end-column="41" />
-          <folding>
-            <element signature="e#2576#2577#0" expanded="true" />
-            <element signature="e#2627#2628#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/controller/AnswerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/vo/AnswerForQuestion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/vo/CommentForAnswer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -813,31 +695,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/vo/CommentForAnswer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/ServiceImpl/AnswerServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="73" column="41" selection-start-line="73" selection-start-column="41" selection-end-line="73" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/controller/AnswerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1007">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/vo/AnswerForQuestion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/UserMapService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/QuestionService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="19" column="56" lean-forward="true" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
+        <state relative-caret-position="285">
+          <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/service/ServiceImpl/QuestionServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
+        <state relative-caret-position="1387">
           <caret line="90" column="49" selection-start-line="90" selection-start-column="49" selection-end-line="90" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhouxiaosong/wx_class_project/controller/QuestionController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="103" column="5" lean-forward="true" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
+        <state relative-caret-position="526">
+          <caret line="103" column="5" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
         </state>
       </provider>
     </entry>
