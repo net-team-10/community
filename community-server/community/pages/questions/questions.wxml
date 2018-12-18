@@ -1,0 +1,33 @@
+<!--pages/questions/questions.wxml-->
+<!-- 引入wxs脚本 -->
+<wxs src="../../util/subutil.wxs" module="tools" />
+<scroll-view scroll-y="true" class="container">
+  <view class="page-header">
+    <text class="page-title">问题广场</text>
+    <!-- <view class="ask-container" bindtap="onTap">
+      <image class="image" src="/images/ask_white.png"></image>
+      <text class="ask">提问</text>
+    </view> -->
+    <!-- <view class="search">
+      <view class="search-left">
+        <image src="../../images/search.png"></image>
+        <input type="text" placeholder="搜索问题" placeholder-class="search-placeholder" name="searchValue" bindblur='textBlur' />
+
+      </view>
+      <view class="search-right" bindtap="upper">
+        <image src="../../images/lighting.png"></image>
+      </view>
+    </view> -->
+
+  </view>
+  <block wx:for="{{questions}}" wx:key="id" wx:for-item="question">
+    <view wx:if="{{question.hide==0}}" class="feed-item">
+      <view class="feed-content">
+        <image class="item-delete" id="{{question.id}}" mode="aspectFit" bindtap="deleteQuestion" src="../../images/delete.png"></image>
+        <view class="question" id="{{question.id}}" bindtap="bindItemTap">
+          <text>{{tools.sub(question.title)}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</scroll-view>

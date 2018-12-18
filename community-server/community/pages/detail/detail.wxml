@@ -1,0 +1,75 @@
+<!--pages/detail/detail.wxml-->
+<!-- 引入wxs脚本 -->
+<wxs src="../../util/subutil.wxs" module="tools" />
+<view class="page-header">
+  <view class="question-title">
+    <text>{{question.title}}</text>
+  </view>
+  <view class="question-content">
+    <text>{{question.content}}</text>
+
+  </view>
+
+</view>
+<view>
+  <view class="add">
+    <view class="write-container" bindtap='onText'>
+      <block wx:if="{{isClose}}">
+        <text>该问题已关闭</text>
+      </block>
+      <block wx:else>
+        <!-- <image src="../../images/write.png"></image>
+        <text>添加回答</text> -->
+      </block>
+
+    </view>
+    <view class="care" bindtap='onBtn'>
+      {{message}}
+    </view>
+  </view>
+</view>
+<view class="line">
+  <text>所有回答</text>
+</view>
+<scroll-view scroll-y="true">
+  <view wx:if="{{!noAnswer}}">
+    <block wx:for="{{answers}}" wx:key="id" wx:for-item="answer">
+      <view wx:if="{{answer.hide==0}}" class="answer-item flex-wrp" id="{{answer.id}}">
+        <view class="avatar flex-item">
+          <view wx:if="{{answer.state==1}}">
+            <image src="../../images/user.png"></image>
+          </view>
+          <view wx:else>
+            <image src="{{answer.user.avatarUrl}}"></image>
+          </view>
+
+        </view>
+        <view class="answer-content flex-item">
+          <view wx:if="{{answer.state==1}}">
+            <view class="answerer-container">
+              <text class="answerer_name">匿名用户  回答了问题</text>
+              <image src="../../images/delete.png" id="{{answer.id}}" catchtap="deleteAnswerTap"> </image>
+            </view>
+
+          </view>
+          <view wx:else>
+            <view class="answerer-container">
+              <text class="answerer_name">{{answer.user.nickName}}  回答了问题</text>
+              <image src="../../images/delete.png" id="{{answer.id}}" catchtap="deleteAnswerTap"> </image>
+            </view>
+          </view>
+
+          <text class="content">{{tools.sub2(answer.content)}}</text>
+          <view class="showtime">
+            <text>{{answer.time}}</text>
+          </view>
+        </view>
+      </view>
+
+    </block>
+  </view>
+  <view wx:else class='none-answer'>
+    <text class="text">还没有人回答哟，抢沙发，抢沙发^_^</text>
+  </view>
+
+</scroll-view>
