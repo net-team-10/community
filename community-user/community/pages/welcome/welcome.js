@@ -60,6 +60,8 @@ Page({
       gender:userInfo.gender
     }
 
+    var that = this
+
     wx.request({
       url: url,
       data: data,
@@ -68,30 +70,17 @@ Page({
         'content-type': 'application/json'
       },
       success(res) {
-        
-      }
-    })
-
-    var that = this
-
-    wx.request({
-      url: app.globalData.domain+"user/zxs", 
-      method: "GET",
-      header: {
-        'content-type': 'application/json'
-      },
-      success(res) {
         var user = res.data
         app.globalData.userInfo = user
         app.globalData.userId = user.id
         that.setData({
-          userInfo:user
+          userInfo: user
         })
       }
     })
 
     wx.switchTab({
-    url: '../questions/questions',
+      url: '../questions/questions',
     })
 
   }

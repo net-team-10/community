@@ -30,6 +30,6 @@
     </block>
   </view>
   <view wx:else class="none">
-    <text>还没有回答过问题,快回答一下吧^_^</text>
+    <text>还没有评论哦,等待一下吧^_^</text>
   </view>
 </scroll-view>
