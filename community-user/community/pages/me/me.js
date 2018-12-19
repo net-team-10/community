@@ -25,6 +25,7 @@ Page({
     this.setData({
       currentNavtab: e.currentTarget.dataset.idx
     });
+    this.onShow()
   },
 
   getData: function() {

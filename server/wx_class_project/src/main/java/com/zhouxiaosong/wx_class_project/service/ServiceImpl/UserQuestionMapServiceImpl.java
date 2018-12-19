@@ -54,7 +54,11 @@ public class UserQuestionMapServiceImpl implements UserQuestionMapService {
         List<Question> questions = new ArrayList<>();
         List<UserQuestionMap> maps = userQuestionMapDao.findAllByUserId(userId);
         for(UserQuestionMap map: maps){
-            questions.add(map.getQuestion());
+            Question question = map.getQuestion();
+            if(question.getHide()==0){
+                questions.add(question);
+            }
+
         }
 
         return questions;

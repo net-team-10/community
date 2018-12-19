@@ -78,7 +78,7 @@ Page({
       }
     })
 
-    wx.switchTab({
+    wx.navigateTo({
       url: '../questions/questions',
     })
 
