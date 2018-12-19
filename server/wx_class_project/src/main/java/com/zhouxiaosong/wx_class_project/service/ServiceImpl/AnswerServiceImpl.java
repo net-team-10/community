@@ -55,13 +55,7 @@ public class AnswerServiceImpl implements AnswerService {
             List<Answer> focusedUserAnswers = answerDao.findAllByUserId(focusedUser.getId());
             if(focusedUserAnswers.size()>0) {
                 Collections.sort(focusedUserAnswers);
-                for(Answer answer:focusedUserAnswers){
-                    if(answer.getHide()==0){
-                        answers.add(answer);
-                        break;
-                    }
-                }
-
+                answers.add(focusedUserAnswers.get(0));
             }
         }
 

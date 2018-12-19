@@ -54,27 +54,22 @@ Page({
   },
   deleteAnswerTap: function(e){
     var answerId = e.currentTarget.id
+    var url = app.globalData.domain + 'answer/del'
+    var data = {
+      answerId: answerId
+    }
 
     var that = this
-    wx.showModal({
-      title: '提示',
-      content: '确定删除该回答吗？',
-      success: function (sm) {
-        var t = that
-        if (sm.confirm) {
-          
-          wx.request({
-            url: app.globalData.domain + "answer/del",
-            data: { "answerId": answerId },
-            method: 'POST',
-            header: {
-              'content-type': 'application/json'
-            },
-            success: function (res) {
-              t.onShow()
-            }
-          })
-        }
+
+    wx.request({
+      url: url,
+      data: data,
+      method: "POST",
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        that.onShow()
       }
     })
   },

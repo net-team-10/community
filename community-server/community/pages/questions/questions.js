@@ -59,7 +59,7 @@ Page({
     var that = this
     wx.showModal({
       title: '提示',
-      content: '确定删除该问题吗？',
+      content: '确定删除问题吗？',
       success: function (sm) {
         var t = that
         if (sm.confirm) {

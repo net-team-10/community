@@ -34,34 +34,31 @@
 <scroll-view scroll-y="true">
   <view wx:if="{{!noAnswer}}">
     <block wx:for="{{answers}}" wx:key="id" wx:for-item="answer">
-      <view wx:if="{{answer.hide==0}}" class="answer-item" id="{{answer.id}}">
-        <view class="answerer-container">
-          <view class="avatar">
-            <view wx:if="{{answer.state==1}}">
-              <image src="../../images/user.png"></image>
-            </view>
-            <view wx:else>
-              <image src="{{answer.user.avatarUrl}}"></image>
-            </view>
+      <view wx:if="{{answer.hide==0}}" class="answer-item flex-wrp" id="{{answer.id}}">
+        <view class="avatar flex-item">
+          <view wx:if="{{answer.state==1}}">
+            <image src="../../images/user.png"></image>
+          </view>
+          <view wx:else>
+            <image src="{{answer.user.avatarUrl}}"></image>
           </view>
 
+        </view>
+        <view class="answer-content flex-item">
           <view wx:if="{{answer.state==1}}">
-            <view class="answerer-text">
-              <text class="answerer-name">匿名用户  回答了问题</text>
+            <view class="answerer-container">
+              <text class="answerer_name">匿名用户  回答了问题</text>
               <image src="../../images/delete.png" id="{{answer.id}}" catchtap="deleteAnswerTap"> </image>
             </view>
 
           </view>
           <view wx:else>
-            <view class="answerer-text">
-              <text class="answerer-name">{{answer.user.nickName}}  回答了问题</text>
+            <view class="answerer-container">
+              <text class="answerer_name">{{answer.user.nickName}}  回答了问题</text>
               <image src="../../images/delete.png" id="{{answer.id}}" catchtap="deleteAnswerTap"> </image>
             </view>
           </view>
 
-        </view>
-
-        <view class="answer-content">
           <text class="content">{{tools.sub2(answer.content)}}</text>
           <view class="showtime">
             <text>{{answer.time}}</text>

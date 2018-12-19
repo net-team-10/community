@@ -7,7 +7,7 @@
   </view>
   <view class="question-content">
     <text>{{question.content}}</text>
-
+    
   </view>
 
 </view>
@@ -21,7 +21,7 @@
         <image src="../../images/write.png"></image>
         <text>添加回答</text>
       </block>
-
+      
     </view>
     <view class="care" bindtap='onBtn'>
       {{message}}
@@ -34,42 +34,35 @@
 <scroll-view scroll-y="true">
   <view wx:if="{{!noAnswer}}">
     <block wx:for="{{answers}}" wx:key="id" wx:for-item="answer">
-      <view wx:if="{{answer.hide==0}}" class="answer-item flex-wrp" id="{{answer.id}}" bindtap="bindItemTap">
-        <view class="answerer-container">
-          <view class="avatar">
-            <view wx:if="{{answer.state==1}}">
-              <image src="../../images/user.png"></image>
-            </view>
-            <view wx:else>
-              <image src="{{answer.user.avatarUrl}}"></image>
-            </view>
-          </view>
-
-          <view wx:if="{{answer.state==1}}">
-            <view class="answerer-text">
-              <text class="answerer-name">匿名用户  回答了问题</text>
-            </view>
-
-          </view>
-          <view wx:else>
-            <view class="answerer-text">
-              <text class="answerer-name">{{answer.user.nickName}}  回答了问题</text>
-            </view>
-          </view>
-
+    <view wx:if="{{answer.hide==0}}" class="answer-item flex-wrp" id="{{answer.id}}" bindtap="bindItemTap">
+      <view class="avatar flex-item">
+        <view wx:if="{{answer.state==1}}">
+          <image src="../../images/user.png"></image>
         </view>
-
-        <view class="answer-content">
-          <text class="content">{{tools.sub2(answer.content)}}</text>
-          <view class="showtime">
-            <text>{{answer.time}}</text>
-          </view>
+        <view wx:else>
+          <image src="{{answer.user.avatarUrl}}"></image>
         </view>
+        
       </view>
-    </block>
+      <view class="answer-content flex-item">
+        <view wx:if="{{answer.state==1}}">
+          <text class="answerer_name">匿名用户  回答了问题</text>
+        </view>
+        <view wx:else>
+          <text class="answerer_name">{{answer.user.nickName}}  回答了问题</text>
+        </view>
+        
+        <text class="content">{{tools.sub2(answer.content)}}</text>
+       
+      </view>
+    </view>
+    <view class="showtime">
+      <text>{{answer.time}}</text>
+    </view>
+  </block>
   </view>
   <view wx:else class='none-answer'>
     <text class="text">还没有人回答哟，抢沙发，抢沙发^_^</text>
   </view>
-
+  
 </scroll-view>
