@@ -42,8 +42,4 @@ public interface QuestionDAO extends JpaRepository<Question, Integer>, JpaSpecif
     @Transactional
     Question setClose( @Param(value = "id") int id);
 
-
-
-
-
 }
